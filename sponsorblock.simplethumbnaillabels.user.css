@@ -3,7 +3,7 @@
 @description  Styles the SponsorBlock thumbnail label to match YouTube's existing badges.
 @namespace    sponsorblock-simple-thumbnail-label
 @author       jiraph
-@version      0.1.0
+@version      1.0.0
 @preprocessor stylus
 @var select corner "Position" {
     'Bottom Left*'           :'bottomleft',
