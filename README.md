@@ -1,12 +1,12 @@
 
 # Userstyles and UserScripts for SponsorBlock (by jiraph)
-- **sponsorblock-simple-thumbnail-label**  
+## **sponsorblock-simple-thumbnail-label**  
 ![Simple Thumbnail Label](https://user-images.githubusercontent.com/19298861/235011221-9a00ac82-6df2-4b0a-badb-dc7dd8493997.jpg)  
 Styles the SponsorBlock thumbnail label to match YouTube's existing badges.  
 Includes settings menu with options for position, style, and color.  
 [Install UserStyle](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.simplethumbnaillabels.user.css)
 
-- **sponsorblock-colour-coded-dropdown**  
+## **sponsorblock-colour-coded-dropdown**  
 
 | **Firefox:**  |**Chrome:**  |
 | -----         | -----       |
