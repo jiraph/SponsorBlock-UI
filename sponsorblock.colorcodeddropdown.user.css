@@ -1,7 +1,7 @@
 /* ==UserStyle==
-@name           SponsorBlock Color-Coded Dropdowns
+@name           SponsorBlock Color-Coded Dropdown
 @description    Styles the dropdown list in the submission menu with each categories respective color.
-@namespace      sponsorblock-color-coded-dropdowns
+@namespace      sponsorblock-color-coded-dropdown
 @homepageURL    https://gist.github.com/jiraph/
 @author         jiraph
 @version        1.0.0
@@ -13,7 +13,7 @@
 @var checkbox unsubmittedColors "Use Unsubmitted Category Colors" 0
 @var checkbox lockedBold "Make Category Text Bold When Locked (VIP Only)" 1
 @var color lockedColor "Change Locked Category Color (VIP Only)" #ffc83d
-@var checkbox dropdownStyle "Flat Style Dropdowns" 1
+@var checkbox dropdownStyle "Flat Style Dropdown" 1
 ==/UserStyle== */
 
 @-moz-document domain("youtube.com") {

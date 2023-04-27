@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         SponsorBlock Colored Category Dropdown
 // @version      1.1.0
-// @description  Colors the dropdowns in the submission menu.
+// @description  Colors the dropdown in the submission menu.
 // @homepageURL  https://gist.github.com/jiraph/
 // @author       jiraph & ChatGPT
 // @match        https://www.youtube.com/*
 // @icon         https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png
 // @grant        GM_addStyle
-// @updateURL    https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdowns.user.js
-// @downloadURL  https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdowns.user.js
+// @updateURL    https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.js
+// @downloadURL  https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.js
 // ==/UserScript==
 
 const COLORS = {
