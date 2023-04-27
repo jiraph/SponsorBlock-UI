@@ -6,7 +6,7 @@ Styles the SponsorBlock thumbnail label to match YouTube's existing badges.
 Includes settings menu with options for position, style, and color.  
 [Install UserStyle](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.simplethumbnaillabels.user.css)
 
-## **sponsorblock-colour-coded-dropdown**  
+## **sponsorblock-color-coded-dropdown**  
 
 | **Firefox:**  |**Chrome:**  |
 | -----         | -----       |
