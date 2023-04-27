@@ -1,0 +1,72 @@
+/* ==UserStyle==
+@name         SponsorBlock Simple Thumbnail Label
+@description  Styles the SponsorBlock thumbnail label to match YouTube's existing badges.
+@namespace    sponsorblock-simple-thumbnail-labal
+@author       jiraph
+@version      0.1.0
+@preprocessor stylus
+@var select corner "Position" {
+    'Bottom Left*'           :'bottomleft',
+    'Top Left'              :'topleft',
+}
+@var select labelStyle 'Style' {
+    'Coloured Text*'        :'textcolor',
+    'Coloured Background'   :'bgcolor',
+    'White Text'            :'textwhite',
+}
+@var color customEA "Custom Excluse Access Text Colour" #01e1bc
+@var checkbox customEAon "Enable Custom Exclusive Access Text Colour" 1
+@var checkbox hideLogo "Hide SponsorBlock Logo" 0
+@var checkbox allCaps "All Caps Label" 0
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    .sponsorThumbnailLabel {
+        bottom: 0 !important;
+        if (corner == 'bottomleft'){
+        top: auto !important;
+        }
+        left: 0;
+        border-radius: 4px !important;
+        opacity: 1 !important;
+        margin: 4px 50px 4px 4px !important;
+        height: 12px !important;
+        padding: 3px 4px !important;
+        font-weight: var(--yt-badge-font-weight,500);
+        line-height: var(--yt-badge-line-height-size,1.2rem);
+        align-items: center;
+        if (labelStyle == 'bgcolor') {
+            background-color: var(--category-color);
+        } else if (labelStyle == 'textcolor' || labelStyle == 'textwhite') {
+            background-color: var(--yt-spec-static-overlay-background-heavy)!important;
+            box-shadow: none !important;
+            if (labelStyle == 'textcolor') {
+            --sb-category-preview-selfpromo: var(--sb-category-selfpromo);
+            --sb-category-preview-sponsor: var(--sb-category-sponsor);
+            } if customEAon {
+            --sb-category-preview-exclusive_access: customEA
+            }
+        }
+    }
+    .sponsorThumbnailLabel svg {
+        height: 1em !important;
+        margin: 0 0.4em 0 0.1em;
+        if hideLogo {
+            display: none !important;
+        }
+        if (labelStyle == 'textcolor'){
+            fill: var(--category-color) !important;
+        }
+    }
+    .sponsorThumbnailLabel span{
+        display: inline !important;
+        max-height: 1.2rem;
+        font-size: var(--yt-badge-font-size,1.2rem) !important;
+        padding-left: 0px !important;
+        if (labelStyle == 'textcolor'){
+            color: var(--category-color) !important;
+        }
+        if allCaps {
+            text-transform: uppercase;
+        }
+    }
+}
