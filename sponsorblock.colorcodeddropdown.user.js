@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SponsorBlock Colored Category Dropdown
 // @version      1.1.0
-// @description  Colors the dropdown in the submission menu.
+// @description  Styles the dropdown list in the submission menu with each categories respective color.
 // @homepageURL  https://gist.github.com/jiraph/
 // @author       jiraph & ChatGPT
 // @match        https://www.youtube.com/*
