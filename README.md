@@ -5,5 +5,5 @@ Styles the SponsorBlock thumbnail label to match YouTube's existing badges.
 
 - **sponsorblock-colour-coded-dropdowns**  
 Styles the dropdown list in the submission menu with each categories respective color.  
-[[ Install UserStyle ]](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdowns.user.css)  
+[[ Install UserStyle  ]](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdowns.user.css)  
 [[ Install UserScript ]](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdowns.user.js) (No Settings Menu)
