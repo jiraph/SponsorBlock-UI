@@ -13,7 +13,7 @@
 @var checkbox unsubmittedColors "Use Unsubmitted Category Colors" 0
 @var checkbox lockedBold "Make Category Text Bold When Locked (VIP Only)" 1
 @var color lockedColor "Change Locked Category Color (VIP Only)" #ffc83d
-@var checkbox dropdownStyle "Flat Style Dropdown" 1
+@var checkbox dropdownStyle "Flat Style Dropdown" 0
 ==/UserStyle== */
 
 @-moz-document domain("youtube.com") {
