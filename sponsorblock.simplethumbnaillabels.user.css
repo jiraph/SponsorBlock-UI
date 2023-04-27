@@ -1,26 +1,23 @@
 /* ==UserStyle==
-@name         SponsorBlock Simple Thumbnail Label
-@description  Styles the SponsorBlock thumbnail label to match YouTube's existing badges.
-@namespace    sponsorblock-simple-thumbnail-label
-@homepageURL  https://gist.github.com/jiraph/
-@author       jiraph
-@version      1.0.0
-@preprocessor stylus
+@name           SponsorBlock Simple Thumbnail Label
+@description    Styles the SponsorBlock thumbnail label to match YouTube's existing badges.
+@namespace      sponsorblock-simple-thumbnail-label
+@homepageURL    https://gist.github.com/jiraph/
+@author         jiraph
+@version        1.0.0
+@preprocessor   stylus
 @var select corner "Position" {
-    'Bottom Left*'           :'bottomleft',
-    'Top Left'              :'topleft',
-}
+    'Bottom Left*'      :'bottomleft',
+    'Top Left'          :'topleft',}
 @var select labelStyle 'Style' {
-    'Colored Text*'        :'textcolor',
-    'Colored Background'   :'bgcolor',
-    'White Text'            :'textwhite',
-}
-@var color customEA "Custom Exclusive Access Text Color" #01e1bc
-@var checkbox customEAon "Enable Custom Exclusive Access Text Color" 1
-@var checkbox hideLogo "Hide SponsorBlock Logo" 0
-@var checkbox allCaps "All Caps Label" 0
+    'Colored Text*'     :'textcolor',
+    'Colored Background':'bgcolor',
+    'White Text'        :'textwhite',}
+@var color      customEA    "Custom Exclusive Access Text Color" #01e1bc
+@var checkbox   customEAon  "Enable Custom Exclusive Access Text Color" 1
+@var checkbox   hideLogo    "Hide SponsorBlock Logo" 0
+@var checkbox   allCaps     "All Caps Label" 0
 ==/UserStyle== */
-
 @-moz-document domain("youtube.com") {
     .sponsorThumbnailLabel {
         bottom: 0 !important;

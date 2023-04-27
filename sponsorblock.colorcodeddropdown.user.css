@@ -6,20 +6,23 @@
 @author         jiraph
 @version        1.0.0
 @preprocessor   stylus
-@var color textColor "Text Color" #ffffff
-@var checkbox outlineText "Outline Text" 1
-@var color outlineColor "Outline Color" #000000
-@var color chapterColor "Set Chapter Color" #1c1c1ce6
-@var checkbox unsubmittedColors "Use Unsubmitted Category Colors" 0
-@var checkbox lockedBold "Make Category Text Bold When Locked (VIP Only)" 1
-@var color lockedColor "Change Locked Category Color (VIP Only)" #ffc83d
-@var checkbox dropdownStyle "Flat Style Dropdown" 0
+@var color      textColor       "Text Color" #ffffff
+@var checkbox   outlineText     "Outline Text (Firefox Only)" 1
+@var color      outlineColor    "Outline Color (Firefox Only)" #000000
+@var checkbox   textBold        "Bold Text" 0
+@var checkbox   lockedBold      "Make Text Bold When Locked (VIP Only)" 1
+@var color      lockedColor     "Change Locked Color (VIP Only)" #ffc83d
+@var color      chapterColor    "Set Chapter Color" #1c1c1ce6
+@var checkbox   unsubmitted     "Use Unsubmitted Category Colors" 0
+@var checkbox   flatStyle       "Flat Style Dropdown" 0
+@var color      flatStyleColor  "Flat Dropdown Color" #333
 ==/UserStyle== */
 
 @-moz-document domain("youtube.com") {
     select[class="sponsorTimeEditSelector sponsorTimeCategories"] > option, select[class="sponsorTimeCategories sponsorTimeEditSelector"] > option {
-        color: textColor;
-        if outlineText {text-shadow: -1px 1px 1px outlineColor, 1px 1px 1px outlineColor,1px -1px 0 outlineColor,-1px -1px 0 outlineColor !important;}
+        color: textColor !important;
+        if textBold {font-weight: bold;}
+        if outlineText {text-shadow: -1px 1px 0 outlineColor, 1px 1px 0 outlineColor,1px -1px 0 outlineColor,-1px -1px 0 outlineColor !important;}
     }
     .sponsorBlockLockedColor {
         color: lockedColor !important;
@@ -27,7 +30,7 @@
     }
     .sponsorTimeEditSelector {
         background-color: rgba(28, 28, 28, .9) !important;
-        if unsubmittedColors {
+        if unsubmitted {
         --sb-category-sponsor: var(--sb-category-preview-sponsor);
         --sb-category-selfpromo: var(--sb-category-preview-selfpromo);
         --sb-category-interaction: var(--sb-category-preview-interaction);
@@ -37,10 +40,17 @@
         --sb-category-filler: var(--sb-category-preview-filler);
         --sb-category-music_offtopic: var(--sb-category-preview-music_offtopic);
         }
-        if dropdownStyle {
+        if flatStyle {
         border: solid #0000 !important;
         border-radius: 6px;
-        background-color: #333 !important;
+        background-color: flatStyleColor !important;
+        }
+    }
+    .sponsorTimeEditInput {
+        if flatStyle {
+        border: solid #0000 !important;
+        border-radius: 6px;
+        background-color: flatStyleColor !important;
         }
     }
     option[value="sponsor"] {
@@ -61,6 +71,8 @@
         background-color: var(--sb-category-preview) !important;}
     option[value="filler"] {
         background-color: var(--sb-category-filler) !important;}
+    option[value="chapter"] {
+        background-color: chapterColor !important;}
     option[value="music_offtopic"] {
         background-color: var(--sb-category-music_offtopic) !important;}
 }
