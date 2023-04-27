@@ -1,66 +1,73 @@
 /* ==UserStyle==
-@name           SponsorBlock Color-Coded Dropdowns
-@description  Styles the dropdown list in the submission menu with each categories respective color.
-@namespace    sponsorblock-color-coded-dropdowns
+@name         SponsorBlock Simple Thumbnail Label
+@description  Styles the SponsorBlock thumbnail label to match YouTube's existing badges.
+@namespace    sponsorblock-simple-thumbnail-label
 @homepageURL  https://gist.github.com/jiraph/
 @author       jiraph
 @version      1.0.0
 @preprocessor stylus
-@var color textColor "Text Color" #ffffff
-@var checkbox outlineText "Outline Text" 1
-@var color outlineColor "Outline Color" #000000
-@var color chapterColor "Set Chapter Color" #1c1c1ce6
-@var checkbox unsubmittedColors "Use Unsubmitted Category Colors" 0
-@var checkbox lockedBold "Make Category Text Bold When Locked (VIP Only)" 1
-@var color lockedColor "Change Locked Category Color (VIP Only)" #ffc83d
-@var checkbox dropdownStyle "Flat Style Dropdowns" 1
+@var select corner "Position" {
+    'Bottom Left*'           :'bottomleft',
+    'Top Left'              :'topleft',
+}
+@var select labelStyle 'Style' {
+    'Colored Text*'        :'textcolor',
+    'Colored Background'   :'bgcolor',
+    'White Text'            :'textwhite',
+}
+@var color customEA "Custom Exclusive Access Text Color" #01e1bc
+@var checkbox customEAon "Enable Custom Exclusive Access Text Color" 1
+@var checkbox hideLogo "Hide SponsorBlock Logo" 0
+@var checkbox allCaps "All Caps Label" 0
 ==/UserStyle== */
-
 @-moz-document domain("youtube.com") {
-    select[class="sponsorTimeEditSelector sponsorTimeCategories"] > option, select[class="sponsorTimeCategories sponsorTimeEditSelector"] > option {
-        color: textColor;
-        if outlineText {text-shadow: -1px 1px 2px outlineColor, 1px 1px 2px outlineColor,1px -1px 0 outlineColor,-1px -1px 0 outlineColor !important;}
-    }
-    .sponsorBlockLockedColor {
-        color: lockedColor !important;
-        if lockedBold {font-weight: bold;}
-    }
-    .sponsorTimeEditSelector {
-        background-color: rgba(28, 28, 28, .9) !important;
-        if unsubmittedColors {
-        --sb-category-sponsor: var(--sb-category-preview-sponsor);
-        --sb-category-selfpromo: var(--sb-category-preview-selfpromo);
-        --sb-category-interaction: var(--sb-category-preview-interaction);
-        --sb-category-intro: var(--sb-category-preview-intro);
-        --sb-category-outro: var(--sb-category-preview-outro);
-        --sb-category-preview: var(--sb-category-preview-preview);
-        --sb-category-filler: var(--sb-category-preview-filler);
-        --sb-category-music_offtopic: var(--sb-category-preview-music_offtopic);
+    .sponsorThumbnailLabel {
+        bottom: 0 !important;
+        if (corner == 'bottomleft'){
+        top: auto !important;
         }
-        if dropdownStyle {
-        border: solid #0000 !important;
-        border-radius: 6px;
-        background-color: #333 !important;
+        left: 0;
+        border-radius: 4px !important;
+        opacity: 1 !important;
+        margin: 4px 50px 4px 4px !important;
+        height: 12px !important;
+        padding: 3px 4px !important;
+        font-weight: var(--yt-badge-font-weight,500);
+        line-height: var(--yt-badge-line-height-size,1.2rem);
+        align-items: center;
+        if (labelStyle == 'bgcolor') {
+            background-color: var(--category-color);
+        } else if (labelStyle == 'textcolor' || labelStyle == 'textwhite') {
+            background-color: var(--yt-spec-static-overlay-background-heavy)!important;
+            box-shadow: none !important;
+            if (labelStyle == 'textcolor') {
+            --sb-category-preview-selfpromo: var(--sb-category-selfpromo);
+            --sb-category-preview-sponsor: var(--sb-category-sponsor);
+            } if customEAon {
+            --sb-category-preview-exclusive_access: customEA
+            }
         }
     }
-    option[value="sponsor"] {
-        background-color: var(--sb-category-sponsor) !important;}
-    option[value="selfpromo"] {
-        background-color: var(--sb-category-selfpromo) !important;}
-    option[value="exclusive_access"] {
-        background-color: var(--sb-category-exclusive_access) !important;}
-    option[value="interaction"] {
-        background-color: var(--sb-category-interaction) !important;}
-    option[value="poi_highlight"] {
-        background-color: var(--sb-category-poi_highlight) !important;}
-    option[value="intro"] {
-        background-color: var(--sb-category-intro) !important;}
-    option[value="outro"] {
-        background-color: var(--sb-category-outro) !important;}
-    option[value="preview"] {
-        background-color: var(--sb-category-preview) !important;}
-    option[value="filler"] {
-        background-color: var(--sb-category-filler) !important;}
-    option[value="music_offtopic"] {
-        background-color: var(--sb-category-music_offtopic) !important;}
+    .sponsorThumbnailLabel svg {
+        height: 1em !important;
+        margin: 0 0.4em 0 0.1em;
+        if hideLogo {
+            display: none !important;
+        }
+        if (labelStyle == 'textcolor'){
+            fill: var(--category-color) !important;
+        }
+    }
+    .sponsorThumbnailLabel span{
+        display: inline !important;
+        max-height: 1.2rem;
+        font-size: var(--yt-badge-font-size,1.2rem) !important;
+        padding-left: 0px !important;
+        if (labelStyle == 'textcolor'){
+            color: var(--category-color) !important;
+        }
+        if allCaps {
+            text-transform: uppercase;
+        }
+    }
 }
