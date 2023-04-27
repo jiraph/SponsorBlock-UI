@@ -20,6 +20,7 @@
 @var checkbox hideLogo "Hide SponsorBlock Logo" 0
 @var checkbox allCaps "All Caps Label" 0
 ==/UserStyle== */
+
 @-moz-document domain("youtube.com") {
     .sponsorThumbnailLabel {
         bottom: 0 !important;

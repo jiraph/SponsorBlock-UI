@@ -6,6 +6,8 @@
 // @author       jiraph & ChatGPT
 // @match        https://www.youtube.com/*
 // @grant        GM_addStyle
+// @updateURL    https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdowns.user.js
+// @downloadURL  https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdowns.user.js
 // ==/UserScript==
 
 const COLORS = {
