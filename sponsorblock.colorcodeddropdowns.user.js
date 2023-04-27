@@ -11,16 +11,16 @@
 // ==/UserScript==
 
 const COLORS = {
-    sponsor: '#00d400',
-    selfpromo: '#ffff00',
-    exclusive_access: '#008a5c',
-    interaction: '#cc00ff',
-    poi_highlight: '#ff1684',
-    intro: '#00ffff',
-    outro: '#0202ed',
-    preview: '#008fd6',
-    filler: '#7300FF',
-    music_offtopic: '#ff9900',
+    sponsor: 'var(--sb-category-sponsor)',
+    selfpromo: 'var(--sb-category-selfpromo)',
+    exclusive_access: 'var(--sb-category-exclusive_access)',
+    interaction: 'var(--sb-category-interaction)',
+    poi_highlight: 'var(--sb-category-poi_highlight)',
+    intro: 'var(--sb-category-intro)',
+    outro: 'var(--sb-category-outro)',
+    preview: 'var(--sb-category-preview)',
+    filler: 'var(--sb-category-filler)',
+    music_offtopic: 'var(--sb-category-music_offtopic)',
 };
 const css = Object.entries(COLORS).map(([category, color]) =>
     `option[value="${category}"] {background-color: ${color} !important;}`)
