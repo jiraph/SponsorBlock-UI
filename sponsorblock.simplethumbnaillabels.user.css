@@ -4,7 +4,7 @@
 @namespace      sponsorblock-simple-thumbnail-label
 @homepageURL    https://gist.github.com/jiraph/
 @author         jiraph
-@version        1.0.0
+@version        1.0.1
 @preprocessor   stylus
 @var select corner "Position" {
     'Bottom Left*'      :'bottomleft',
@@ -33,6 +33,8 @@
         font-weight: var(--yt-badge-font-weight,500);
         line-height: var(--yt-badge-line-height-size,1.2rem);
         align-items: center;
+        white-space: nowrap !important;
+        overflow: hidden !important;
         if (labelStyle == 'bgcolor') {
             background-color: var(--category-color);
         } else if (labelStyle == 'textcolor' || labelStyle == 'textwhite') {
