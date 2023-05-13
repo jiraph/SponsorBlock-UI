@@ -4,7 +4,7 @@
 @namespace      sponsorblock-simple-thumbnail-label
 @homepageURL    https://gist.github.com/jiraph/
 @author         jiraph
-@version        1.0.1
+@version        1.0.2
 @preprocessor   stylus
 @var select corner "Position" {
     'Bottom Left*'      :'bottomleft',
@@ -51,6 +51,7 @@
     .sponsorThumbnailLabel svg {
         height: 1em !important;
         margin: 0 0.4em 0 0.1em;
+        fill: white;
         if hideLogo {
             display: none !important;
         }
