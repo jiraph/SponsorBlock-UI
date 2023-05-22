@@ -1,4 +1,3 @@
-
 # Userstyles and UserScripts for SponsorBlock (by jiraph)
 ## **sponsorblock-simple-thumbnail-label**  
 ![Simple Thumbnail Label](https://user-images.githubusercontent.com/19298861/235011221-9a00ac82-6df2-4b0a-badb-dc7dd8493997.jpg)  
@@ -10,7 +9,7 @@ Includes settings menu with options for position, style, and color.
 
 | **Firefox:**  |**Chrome:**  |
 | -----         | -----       |
-| ![Dropdown Firefox](https://user-images.githubusercontent.com/19298861/235011303-2af6bf8c-4ea5-4be6-97f3-c3a241f9a0c0.png)  |![Dropdown Chrome](https://user-images.githubusercontent.com/19298861/235011305-6ae5d738-eba4-4740-a76d-8094ece27abe.png)  |
+| ![Dropdown Firefox](https://user-images.githubusercontent.com/19298861/235011303-2af6bf8c-4ea5-4be6-97f3-c3a241f9a0c0.png)  |![Dropdown Chrome](https://user-images.githubusercontent.com/19298861/240037289-2a4dc09f-6f67-428f-9868-d9ac15618e03.png) |
 | Default Settings | Bold Text, Invert Text Color: Self-Promotion, Intermission, Non-Music |
 
 Styles the dropdown list in the submission menu with each categories respective color.  
