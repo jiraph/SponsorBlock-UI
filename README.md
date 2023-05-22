@@ -11,6 +11,7 @@ Includes settings menu with options for position, style, and color.
 | **Firefox:**  |**Chrome:**  |
 | -----         | -----       |
 | ![Dropdown Firefox](https://user-images.githubusercontent.com/19298861/235011303-2af6bf8c-4ea5-4be6-97f3-c3a241f9a0c0.png)  |![Dropdown Chrome](https://user-images.githubusercontent.com/19298861/235011305-6ae5d738-eba4-4740-a76d-8094ece27abe.png)  |
+| Default Settings | Bold Text, Invert Text Color: Self-Promotion, Intermission, Non-Music |
 
 Styles the dropdown list in the submission menu with each categories respective color.  
 Includes settings menu with options for colors and text style.  
