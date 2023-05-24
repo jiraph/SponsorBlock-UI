@@ -5,7 +5,7 @@
  
 Styles the SponsorBlock thumbnail label to match YouTube's existing thumbnail badges. 
 - Colors will follow what you choose in SponsorBlock settings, and text will adapt to contrast with background color. 
-- Includes a settings menu if installed with Stylus. Choose top left or bottom left corner, colored text or colored background, all caps text, and show/hide logo.
+- Includes a settings menu if installed with Stylus. Options for top left or bottom left corner, colored text/white text/colored background, all caps text, and show/hide logo.
 
 [[Install UserStyle]](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.simplethumbnaillabels.user.css)
 
