@@ -5,7 +5,7 @@
 @homepageURL    https://gist.github.com/jiraph/
 @updateURL      https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.simplethumbnaillabels.user.css
 @author         jiraph
-@version        1.0.6
+@version        1.0.7
 @preprocessor   stylus
 @var select corner "Position" {
     'Bottom Left*'      :'bottomleft',
@@ -36,6 +36,8 @@
         line-height: var(--yt-badge-line-height-size,1.2rem);
         align-items: center;
         white-space: nowrap !important;
+        z-index: 0;
+        user-select: none;
         if (labelStyle == 'textwhite') {
         --category-text-color: white !important;
         }
