@@ -36,8 +36,8 @@
         line-height: var(--yt-badge-line-height-size,1.2rem);
         align-items: center;
         white-space: nowrap !important;
-        z-index: 0;
-        user-select: none;
+        z-index: 0 !important;
+        pointer-events: none;
         if (labelStyle == 'textwhite') {
         --category-text-color: white !important;
         }
@@ -53,6 +53,10 @@
             --sb-category-preview-exclusive_access: customEA
             }
         }
+    }
+    ytd-thumbnail:hover .sponsorThumbnailLabel {
+        opacity: 0 !important;
+        transition: opacity .6s .2s;
     }
     .sponsorThumbnailLabel svg {
         height: 1em !important;
