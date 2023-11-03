@@ -9,6 +9,8 @@ Styles the SponsorBlock thumbnail label to match YouTube's existing thumbnail ba
 
 [[Install UserStyle]](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.simplethumbnaillabels.user.css)
 
+Thanks to @virginviolet for fixing compatibility with *Thumbnail Rating Bar for YouTube*.
+
 ## **sponsorblock-color-coded-dropdown**  
 
 | **Firefox:**  |**Chrome:**  |
