@@ -5,8 +5,11 @@
 @homepageURL    https://gist.github.com/jiraph/
 @updateURL      https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.css
 @author         jiraph
-@version        1.2.0
+@version        1.3.0
 @preprocessor   stylus
+@var select color-style "Style" {
+    'Color Background*'   :'color-background',
+    'Color Text'          :'color-text',}
 @var checkbox   outlineText     "Outline Text (Firefox Only)" 0
 @var color      outlineColor    "Outline Color (Firefox Only)" #000000
 @var checkbox   textBold        "Bold Text" 0
@@ -21,31 +24,38 @@
 
 @-moz-document domain("youtube.com") {
     select[class="sponsorTimeEditSelector sponsorTimeCategories"] > option, select[class="sponsorTimeCategories sponsorTimeEditSelector"] > option {
-        if textBold {font-weight: bold;}
+        if textBold {
+            font-weight: bold;
+        }
         if outlineText {
-            color: #fff !important;
-            text-shadow: -1px 1px 0 outlineColor, 1px 1px 0 outlineColor,1px -1px 0 outlineColor,-1px -1px 0 outlineColor !important;}
+            text-shadow: -1px 1px 0 outlineColor, 1px 1px 0 outlineColor,1px -1px 0 outlineColor,-1px -1px 0 outlineColor !important;
+            if (color-style == 'color-background') {
+                color: #fff !important;
+            }
+        }
     }
     body option[class="sponsorBlockLockedColor"] {
         color: lockedColor !important;
-        if lockedBold {font-weight: bold;}
+        if lockedBold {
+            font-weight: bold;
+        }
     }
     .sponsorTimeEditSelector {
         background-color: rgba(28, 28, 28, .9) !important;
         if unsubmitted {
-        --sb-category-sponsor: var(--sb-category-preview-sponsor);
-        --sb-category-selfpromo: var(--sb-category-preview-selfpromo);
-        --sb-category-interaction: var(--sb-category-preview-interaction);
-        --sb-category-intro: var(--sb-category-preview-intro);
-        --sb-category-outro: var(--sb-category-preview-outro);
-        --sb-category-preview: var(--sb-category-preview-preview);
-        --sb-category-filler: var(--sb-category-preview-filler);
-        --sb-category-music_offtopic: var(--sb-category-preview-music_offtopic);
+            --sb-category-sponsor: var(--sb-category-preview-sponsor);
+            --sb-category-selfpromo: var(--sb-category-preview-selfpromo);
+            --sb-category-interaction: var(--sb-category-preview-interaction);
+            --sb-category-intro: var(--sb-category-preview-intro);
+            --sb-category-outro: var(--sb-category-preview-outro);
+            --sb-category-preview: var(--sb-category-preview-preview);
+            --sb-category-filler: var(--sb-category-preview-filler);
+            --sb-category-music_offtopic: var(--sb-category-preview-music_offtopic);
         }
         if flatStyle {
-        border: solid #0000 !important;
-        border-radius: 6px;
-        background-color: flatStyleColor !important;
+            border: solid #0000 !important;
+            border-radius: 6px;
+            background-color: flatStyleColor !important;
         }
     }
     .sponsorTimeEditInput {
@@ -56,36 +66,102 @@
         }
     }
     option[value="sponsor"] {
-        background-color: var(--sb-category-sponsor) !important;
-        color: var(--sb-category-text-sponsor) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-sponsor) !important;
+            }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-sponsor) !important;
+            color: var(--sb-category-text-sponsor) !important;
+            }
+        }
     option[value="selfpromo"] {
-        background-color: var(--sb-category-selfpromo) !important;
-        color: var(--sb-category-text-selfpromo) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-selfpromo) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-selfpromo) !important;
+            color: var(--sb-category-text-selfpromo) !important;
+        }
+    }
     option[value="exclusive_access"] {
-        background-color: var(--sb-category-exclusive_access) !important;
-        color: var(--sb-category-text-exclusive_access) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-exclusive_access) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-exclusive_access) !important;
+            color: var(--sb-category-text-exclusive_access) !important;
+        }
+    }
     option[value="interaction"] {
-        background-color: var(--sb-category-interaction) !important;
-        color: var(--sb-category-text-interaction) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-interaction) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-interaction) !important;
+            color: var(--sb-category-text-interaction) !important;
+        }
+    }
     option[value="poi_highlight"] {
-        background-color: var(--sb-category-poi_highlight) !important;
-        color: var(--sb-category-text-poi_highlight) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-poi_highlight) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-poi_highlight) !important;
+            color: var(--sb-category-text-poi_highlight) !important;
+        }
+    }
     option[value="intro"] {
-        background-color: var(--sb-category-intro) !important;
-        color: var(--sb-category-text-intro) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-intro) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-intro) !important;
+            color: var(--sb-category-text-intro) !important;
+        }
+    }
     option[value="outro"] {
-        background-color: var(--sb-category-outro) !important;
-        color: var(--sb-category-text-outro) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-outro) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-outro) !important;
+            color: var(--sb-category-text-outro) !important;
+        }
+    }
     option[value="preview"] {
-        background-color: var(--sb-category-preview) !important;
-        color: var(--sb-category-text-preview) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-preview) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-preview) !important;
+            color: var(--sb-category-text-preview) !important;
+        }
+    }
     option[value="filler"] {
-        background-color: var(--sb-category-filler) !important;
-        color: var(--sb-category-text-filler) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-filler) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-filler) !important;
+            color: var(--sb-category-text-filler) !important;
+        }
+    }
     option[value="chapter"] {
-        background-color: chapterColor !important;
-        color: chapterText !important}
+        if (color-style == 'color-text') {
+            color: chapterColor !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: chapterColor !important;
+            color: chapterText !important;
+        }
+    }
     option[value="music_offtopic"] {
-        background-color: var(--sb-category-music_offtopic) !important;
-        color: var(--sb-category-text-music_offtopic) !important;}
+        if (color-style == 'color-text') {
+            color: var(--sb-category-music_offtopic) !important;
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-music_offtopic) !important;
+            color: var(--sb-category-text-music_offtopic) !important;
+        }
+    }
 }

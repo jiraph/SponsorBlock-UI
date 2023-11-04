@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SponsorBlock Colored Category Dropdown
-// @version      1.2.0
+// @version      1.3.0
 // @description  Styles the dropdown list in the submission menu with each categories respective color.
 // @homepageURL  https://gist.github.com/jiraph/
 // @author       jiraph
@@ -12,19 +12,37 @@
 // ==/UserScript==
 
 const css=`
+
+/* EDIT CHAPTER COLOR */
+    option[value="chapter"] {
+        --chapterColor: #e93b3b;
+        --chapterText:  #ffffff;
+    }
+
 /* TEXT OUTLINE (FIREFOX ONLY) (UN-COMMENT TO ENABLE) */
-    /*
+/*
     select[class="sponsorTimeEditSelector sponsorTimeCategories"] > option, select[class="sponsorTimeCategories sponsorTimeEditSelector"] > option {
-        color: #fff !important;
+        color: white !important;
         text-shadow: -1px 1px 0 black, 1px 1px 0 black,1px -1px 0 black,-1px -1px 0 black !important;
     }
-    */
+*/
+
+/* BOLD ALL TEXT (UN-COMMENT TO ENABLE) */
+/*
+    select[class="sponsorTimeEditSelector sponsorTimeCategories"] > option, select[class="sponsorTimeCategories sponsorTimeEditSelector"] > option {
+        font-weight: bold !important;
+    }
+*/
+
 /* BOLD LOCKED CATEGORIES (VIP ONLY) */
     body option[class="sponsorBlockLockedColor"] {
         color: #ffc83d !important;
         font-weight: bold !important;
     }
-/* CATEGORY COLORS */
+
+/* ~ CHOOSE COLORED BACKGROUND OR COLORED TEXT ~ */
+
+/* COLORED BACKGROUND (COMMENT TO DISABLE) */
     option[value="sponsor"] {
         background-color: var(--sb-category-sponsor) !important;
         color: var(--sb-category-text-sponsor) !important;
@@ -62,11 +80,49 @@ const css=`
         color: var(--sb-category-text-filler) !important;
         }
     option[value="chapter"] {
-        background-color: #e93b3b !important;
-        color: white !important;
+        background-color: var(--chapterColor) !important;
+        color: var(--chapterText) !important;
         }
     option[value="music_offtopic"] {
         background-color: var(--sb-category-music_offtopic) !important;
         color: var(--sb-category-text-music_offtopic) !important;
-        }`
+        }
+
+/* COLORED TEXT (UN-COMMENT TO ENABLE) */
+    /*
+    option[value="sponsor"] {
+        color: var(--sb-category-sponsor) !important;
+        }
+    option[value="selfpromo"] {
+        color: var(--sb-category-selfpromo) !important;
+        }
+    option[value="exclusive_access"] {
+        color: var(--sb-category-exclusive_access) !important;
+        }
+    option[value="interaction"] {
+        color: var(--sb-category-interaction) !important;
+        }
+    option[value="poi_highlight"] {
+        color: var(--sb-category-poi_highlight) !important;
+        }
+    option[value="intro"] {
+        color: var(--sb-category-intro) !important;
+        }
+    option[value="outro"] {
+        color: var(--sb-category-outro) !important;
+        }
+    option[value="preview"] {
+        color: var(--sb-category-preview) !important;
+        }
+    option[value="filler"] {
+        color: var(--sb-category-filler) !important;
+        }
+    option[value="chapter"] {
+        color: var(--chapterColor) !important;
+        }
+    option[value="music_offtopic"] {
+        color: var(--sb-category-music_offtopic) !important;
+        }
+    */
+`
 GM_addStyle(css);
