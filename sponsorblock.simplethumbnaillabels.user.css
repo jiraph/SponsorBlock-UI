@@ -5,7 +5,7 @@
 @homepageURL    https://gist.github.com/jiraph/
 @updateURL      https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.simplethumbnaillabels.user.css
 @author         jiraph
-@version        1.0.9
+@version        1.0.10
 @preprocessor   stylus
 @var select corner "Position" {
     'Bottom Left*'      :'bottomleft',
@@ -29,7 +29,7 @@
         border-radius: 4px !important;
         opacity: 1 !important;
         margin: 4px 50px 4px 4px !important;
-        height: 12px !important;
+        height: 14px !important;
         max-width: calc(100% - 60px);
         padding: 3px 4px !important;
         font-weight: var(--yt-badge-font-weight,500);
@@ -53,6 +53,9 @@
             --sb-category-preview-exclusive_access: customEA
             }
         }
+    }
+    ytd-thumbnail.ytd-rich-grid-media > .sponsorThumbnailLabel {
+        margin: 8px 50px 8px 8px !important;
     }
     ytd-thumbnail:hover .sponsorThumbnailLabel {
         opacity: 0 !important;
