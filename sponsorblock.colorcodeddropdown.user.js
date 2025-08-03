@@ -7,8 +7,8 @@
 // @match        https://www.youtube.com/*
 // @icon         https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png
 // @grant        GM_addStyle
-// @updateURL    https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.js
-// @downloadURL  https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.js
+// @updateURL    https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.js
+// @downloadURL  https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.js
 // ==/UserScript==
 
 const css=`
@@ -75,6 +75,10 @@ const css=`
         background-color: var(--sb-category-preview) !important;
         color: var(--sb-category-text-preview) !important;
         }
+    option[value="hook"] {
+        background-color: var(--sb-category-hook) !important;
+        color: var(--sb-category-text-hook) !important;
+        }
     option[value="filler"] {
         background-color: var(--sb-category-filler) !important;
         color: var(--sb-category-text-filler) !important;
@@ -113,6 +117,9 @@ const css=`
         }
     option[value="preview"] {
         color: var(--sb-category-preview) !important;
+        }
+    option[value="hook"] {
+        color: var(--sb-category-hook) !important;
         }
     option[value="filler"] {
         color: var(--sb-category-filler) !important;

@@ -13,13 +13,14 @@ Styles the SponsorBlock thumbnail label to match YouTube's existing thumbnail ba
 
 Thanks to @virginviolet for fixing compatibility with *Thumbnail Rating Bar for YouTube*.
 
-## **Colour-coded Dropdown Menu**  
+## **Better Submission Menu**  
 
-| **Coloured Background:** |  **Coloured Text:** |
+### **Customization Examples:** 
+| Coloured background, bold text, outlined text |  Flat UI, coloured text, icons, coloured segment box |
 | :-: | :-: |
-| ![dropdown-firefox](https://user-images.githubusercontent.com/19298861/240079154-93f6a229-78ff-43c1-909e-7feb8c4033fa.png)|![dropdown-firefox-text](https://user-images.githubusercontent.com/19298861/280434320-399f1bce-8d60-4d0e-845a-8f8aeb363912.png)|
+|<img width="390" height="534" alt="Screenshot (92)" src="https://github.com/user-attachments/assets/e8343ad6-3d93-4d18-82ab-1b577640e8b9" />|<img width="390" height="537" alt="Screenshot (93)" src="https://github.com/user-attachments/assets/4611e0ad-fc9e-48e8-b5e1-9f4667f366af" />|
 
-[![Install with Stylus](https://custom-icon-badges.demolab.com/badge/Install%20with_Stylus-00adad.svg?logo=stylususercss)](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.css)  [![Static Badge](https://img.shields.io/badge/Install_Userscript-444?logo=tampermonkey)](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.js)
+[![Install with Stylus](https://custom-icon-badges.demolab.com/badge/Install%20with_Stylus-00adad.svg?logo=stylususercss)](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.css)  
 
 Styles the dropdown list in the submission menu with each categories respective colour.
 - Colours will follow what you choose in SponsorBlock settings, and text colour will adapt to contrast with background colour. 
@@ -28,3 +29,9 @@ Styles the dropdown list in the submission menu with each categories respective 
   - Option for bold text to make it more readable, and an option for extra-readable white text with black outline (outline does not work on Chrome).
   - Edit chapter colour, since it does not have a colour in the SponsorBlock settings.
   - Option to use unsubmitted category colours.
+
+
+## **Colour-coded Dropdown Menu**
+[![Static Badge](https://img.shields.io/badge/Install_Userscript-444?logo=tampermonkey)](https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.js)
+
+A userscript version of Better Submission Menu with less features.
