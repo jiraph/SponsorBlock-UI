@@ -1,5 +1,5 @@
 # UI Userstyles for SponsorBlock
-Customizations for the SponsorBlock extension. Install with Stylus.
+Customizations for the [SponsorBlock](https://github.com/ajayyy/SponsorBlock/) extension. Install with [Stylus](https://github.com/openstyles/stylus/).
 ## **Better Submission Menu**  
 
 ### **Customization Examples:** 
