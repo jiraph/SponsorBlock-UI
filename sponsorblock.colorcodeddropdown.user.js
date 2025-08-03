@@ -7,8 +7,8 @@
 // @match        https://www.youtube.com/*
 // @icon         https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png
 // @grant        GM_addStyle
-// @updateURL    https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.js
-// @downloadURL  https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.js
+// @updateURL    https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.js
+// @downloadURL  https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.js
 // ==/UserScript==
 
 const css=`
