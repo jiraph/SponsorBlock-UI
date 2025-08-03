@@ -2,7 +2,7 @@
 // @name         SponsorBlock Colored Category Dropdown
 // @version      1.3.0
 // @description  Styles the dropdown list in the submission menu with each categories respective color.
-// @homepageURL  https://gist.github.com/jiraph/
+// @homepageURL  https://github.com/jiraph/SponsorBlock-UI/
 // @author       jiraph
 // @match        https://www.youtube.com/*
 // @icon         https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png
