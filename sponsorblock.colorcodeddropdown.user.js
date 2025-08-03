@@ -75,6 +75,10 @@ const css=`
         background-color: var(--sb-category-preview) !important;
         color: var(--sb-category-text-preview) !important;
         }
+    option[value="hook"] {
+        background-color: var(--sb-category-hook) !important;
+        color: var(--sb-category-text-hook) !important;
+        }
     option[value="filler"] {
         background-color: var(--sb-category-filler) !important;
         color: var(--sb-category-text-filler) !important;
@@ -113,6 +117,9 @@ const css=`
         }
     option[value="preview"] {
         color: var(--sb-category-preview) !important;
+        }
+    option[value="hook"] {
+        color: var(--sb-category-hook) !important;
         }
     option[value="filler"] {
         color: var(--sb-category-filler) !important;
