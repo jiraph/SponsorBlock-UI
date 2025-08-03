@@ -1,4 +1,5 @@
-
+# UI Userstyles for SponsorBlock
+Customizations for the SponsorBlock extension. Install with Stylus.
 ## **Better Submission Menu**  
 
 ### **Customization Examples:** 
@@ -8,21 +9,18 @@
 
 [![Install with Stylus](https://custom-icon-badges.demolab.com/badge/Install%20with_Stylus-00adad.svg?logo=stylususercss)](https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.css)  
 
-Styles the dropdown list in the submission menu with each categories respective colour.
-- Colours will follow what you choose in SponsorBlock settings, and text colour will adapt to contrast with background colour. 
-- Includes a settings menu if installed with Stylus:  
-  - Choose between colouring the background, or colouring the text.
-  - Option for bold text to make it more readable, and an option for extra-readable white text with black outline (outline does not work on Chrome).
-  - Edit chapter colour, since it does not have a colour in the SponsorBlock settings.
-  - Option to use unsubmitted category colours.
+Revamps the submission menu with extra features.
 
+Includes a settings menu if installed with Stylus:
+  - Cleaner flat UI.
+  - Replace text buttons with icons.
+  - Outline the segment box w/ the colour of the selected category.
+  - Coloured segment dropdown menu: Colours will follow what you choose in SponsorBlock settings, and text colour will adapt to contrast with background colour. 
+    - Choose between colouring the background, or colouring the text.
+    - More readable bold text, or extra-readable white text with black outline (outline does not work on Chrome).
+    - Edit chapter colour, since it does not have a colour in the SponsorBlock settings.
+    - Option to use unsubmitted category colours.
 
-## **Colour-coded Dropdown Menu**
-[![Static Badge](https://img.shields.io/badge/Install_Userscript-444?logo=tampermonkey)](https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.js)
-
-A userscript version of Better Submission Menu with less features.
-
-# UI Userstyles for SponsorBlock
 ## **Simple Thumbnail Label**
 
 ![simple-label-1](https://user-images.githubusercontent.com/19298861/240079610-85643aa4-a7f7-4132-b16d-79f005dfd25c.jpg)
@@ -36,3 +34,10 @@ Styles the SponsorBlock thumbnail label to match YouTube's existing thumbnail ba
   - Options for top left or bottom left corner, coloured text/white text/coloured background, all caps text, and show/hide logo.
 
 Thanks to @virginviolet for fixing compatibility with *Thumbnail Rating Bar for YouTube*.
+
+## **Colour-coded Dropdown Menu**
+[![Static Badge](https://img.shields.io/badge/Install_Userscript-444?logo=tampermonkey)](https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.js)
+
+A userscript version of Better Submission Menu with less features.
+
+
