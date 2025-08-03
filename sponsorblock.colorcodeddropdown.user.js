@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SponsorBlock Colored Category Dropdown
-// @version      1.3.1
+// @version      1.3.2
 // @description  Styles the dropdown list in the submission menu with each categories respective color.
 // @homepageURL  https://github.com/jiraph/SponsorBlock-UI/
 // @author       jiraph
