@@ -5,7 +5,7 @@
 @homepageURL    https://github.com/jiraph/SponsorBlock-UI/
 @updateURL      https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.simplethumbnaillabels.user.css
 @author         jiraph
-@version        1.0.10
+@version        1.0.12
 @preprocessor   stylus
 @var select corner "Position" {
     'Bottom Left*'      :'bottomleft',
