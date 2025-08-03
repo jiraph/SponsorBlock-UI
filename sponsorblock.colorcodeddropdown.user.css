@@ -1,40 +1,35 @@
 /* ==UserStyle==
-@name           SponsorBlock Color-Coded Dropdown
+@name           Better Menu for SponsorBlock
 @description    Styles the dropdown list in the submission menu with each categories respective color.
 @namespace      sponsorblock-color-coded-dropdown
 @homepageURL    https://gist.github.com/jiraph/
 @updateURL      https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.colorcodeddropdown.user.css
 @author         jiraph
-@version        1.3.0
+@version        1.4.0
 @preprocessor   stylus
-@var select color-style "Style" {
+@var select     color-style     "Dropdown menu style" {
     'Color Background*'   :'color-background',
     'Color Text'          :'color-text',}
-@var checkbox   outlineText     "Outline Text (Firefox Only)" 0
-@var color      outlineColor    "Outline Color (Firefox Only)" #000000
-@var checkbox   textBold        "Bold Text" 0
-@var checkbox   lockedBold      "Bold Text When Locked (VIP Only)" 1
-@var color      lockedColor     "Change Locked Color (VIP Only)" #ffc83d
-@var color      chapterColor    "Set Chapter Color" #e93b3b
-@var color      chapterText     "Set Chapter Text Color" #fff
-@var checkbox   unsubmitted     "Use Unsubmitted Category Colors" 0
-@var checkbox   flatStyle       "Flat Style Dropdown" 0
-@var color      flatStyleColor  "Flat Dropdown Color" #333
+@var checkbox   outlineText     "Outline text (Firefox only)" 0
+@var checkbox   textBold        "Bold text" 0
+@var checkbox   lockedBold      "Bold text when locked (VIP only)" 1
+@var color      lockedColor     "Change locked color (VIP only)" #ffc83d
+@var color      chapterColor    "Set chapter color" #e93b3b
+@var color      chapterText     "Set chapter text color" #fff
+@var checkbox   unsubmitted     "Use unsubmitted category colors" 0
+@var checkbox   highlightAlt    "Swap highlight's segment & text color" 0
+@var checkbox   flatStyle       "Flat style UI" 0
+@var checkbox   icons           "Replace cuttons with icons" 0
+@var checkbox   outlineBox      "Outline selection box with segment colour" 0
 ==/UserStyle== */
 
 @-moz-document domain("youtube.com") {
-    select[class="sponsorTimeEditSelector sponsorTimeCategories"] > option, select[class="sponsorTimeCategories sponsorTimeEditSelector"] > option {
+    select.sponsorTimeCategories > option {
         if textBold {
             font-weight: bold;
         }
-        if outlineText {
-            text-shadow: -1px 1px 0 outlineColor, 1px 1px 0 outlineColor,1px -1px 0 outlineColor,-1px -1px 0 outlineColor !important;
-            if (color-style == 'color-background') {
-                color: #fff !important;
-            }
-        }
     }
-    body option[class="sponsorBlockLockedColor"] {
+    body option.sponsorBlockLockedColor {
         color: lockedColor !important;
         if lockedBold {
             font-weight: bold;
@@ -49,119 +44,399 @@
             --sb-category-intro: var(--sb-category-preview-intro);
             --sb-category-outro: var(--sb-category-preview-outro);
             --sb-category-preview: var(--sb-category-preview-preview);
+            --sb-category-hook: var(--sb-category-preview-hook);
             --sb-category-filler: var(--sb-category-preview-filler);
             --sb-category-music_offtopic: var(--sb-category-preview-music_offtopic);
+        }       
+    }
+    if flatStyle {
+        .sponsorTimeEditInput, .sponsorTimeEditSelector {
+            border: 1px solid #444 !important;
+            border-radius: 4px;
+            padding-left: 3px;
+            padding-right: 2px;
+            margin-left: 3px;
+            margin-right: 3px;
+            background-color: #1b1b1b !important;
         }
-        if flatStyle {
-            border: solid #0000 !important;
-            border-radius: 6px;
-            background-color: flatStyleColor !important;
+        .sponsorTimeEditInput.sponsorChapterNameInput {
+            width: 90% !important;
+            margin-bottom: 5px;
+        }
+        .sponsorNowButton {
+            margin: 2px;
+        }
+        .sponsorTimeMessagesRow > td > div {
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px !important;
+            margin-right: 10px;
+            margin-top: 10px !important;
+        }
+        .sponsorTimeMessagesRow > td > div:nth-of-type(1) {
+            border-top: 1px solid #444;
+            padding-top: 10px !important;
+            margin-top: 0px !important;
         }
     }
-    .sponsorTimeEditInput {
-        if flatStyle {
-        border: solid #0000 !important;
-        border-radius: 6px;
-        background-color: flatStyleColor !important;
+    
+/* ICONS */
+    if icons {
+        
+        /* LOWER ROW */
+        span.sponsorTimeEditButton {
+            font-size: 0px;
+            display: inline-block;
+            height: 18px;
+            width: 18px;
+            background-repeat: no-repeat;
+            vertical-align: text-top;
+        }
+        span[id*="DeleteButton"] {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 25H25M85 25H75M25 25H30M25 25C25 25 25 74 25 80C25 86 29 90 35 90C41 90 65 90 65 90C71 90 75 86 75 80C75 54.6159 75 25 75 25M75 25H70M30 25L35 10H65L70 25M30 25H70M41 40V75M59 75V40' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        span[id*="PreviewButton"]{
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 85V15L86 50L24 85Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        span[id*="InspectButton"] {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 18V82M85 18V82L27.8947 50L85 18Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        span[id*="PreviewEndButton"] {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M85 18V82M15 18V82L72.1053 50L15 18Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        span[id*="EditButton"] {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M64 21L15 70L8 92L30 85L79 36M64 21L78 7L93 22L79 36M64 21L79 36' stroke='white' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        
+        /* UPPER ROW */
+        span.sponsorNowButton {
+            font-size: 0px;
+            display: inline-block;
+            height: 18px;
+            width: 18px;
+            background-repeat: no-repeat;
+            vertical-align: top;
+            if not flatStyle {
+                vertical-align: text-top;
+            }
+        }
+        .sponsorNowButton {
+            margin-left: 5px;
+            padding-right: 5px;
+        }
+
+        span[id*="startButton"] {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 29V71M56.5 29V71L24 50L56.5 29ZM89 29V71L56.4736 50L89 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        span[id*="nowButton"] {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 29V71M5 71L37 50L5 29V71ZM95 71V29L63 50L95 71Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        span[id*="endButton"] {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M89 29V71M42.5 29V71L75 50L42.5 29ZM10 29V71L42.5264 50L10 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
     }
+    
+/* SPONSOR */
     option[value="sponsor"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-sponsor) !important;
-            }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-sponsor) !important;
-            color: var(--sb-category-text-sponsor) !important;
+            if outlineText {
+                  text-shadow: -1px 1px 0 var(--sb-category-text-sponsor), 1px 1px 0 var(--sb-category-text-sponsor),1px -1px 0 var(--sb-category-text-sponsor),-1px -1px 0 var(--sb-category-text-sponsor) !important;
             }
         }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-sponsor) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-sponsor) !important;
+            }
+        }
+    }
+    
+/* UNPAID SELF PROMOTION */
     option[value="selfpromo"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-selfpromo) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-selfpromo), 1px 1px 0 var(--sb-category-text-selfpromo),1px -1px 0 var(--sb-category-text-selfpromo),-1px -1px 0 var(--sb-category-text-selfpromo) !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-selfpromo) !important;
-            color: var(--sb-category-text-selfpromo) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-selfpromo) !important;
+            }
         }
     }
+        
+/* EXCLUSIVE ACCESS */
     option[value="exclusive_access"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-exclusive_access) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-exclusive_access), 1px 1px 0 var(--sb-category-text-exclusive_access),1px -1px 0 var(--sb-category-text-exclusive_access),-1px -1px 0 var(--sb-category-text-exclusive_access) !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-exclusive_access) !important;
-            color: var(--sb-category-text-exclusive_access) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-exclusive_access) !important;
+            }
         }
+        
     }
+        
+/* INTERACTION REMINDER */
     option[value="interaction"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-interaction) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-interaction), 1px 1px 0 var(--sb-category-text-interaction),1px -1px 0 var(--sb-category-text-interaction),-1px -1px 0 var(--sb-category-text-interaction) !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-interaction) !important;
-            color: var(--sb-category-text-interaction) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-interaction) !important;
+            }
         }
     }
+        
+/* HIGHLIGHT */
     option[value="poi_highlight"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-poi_highlight) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-poi_highlight), 1px 1px 0 var(--sb-category-text-poi_highlight),1px -1px 0 var(--sb-category-text-poi_highlight),-1px -1px 0 var(--sb-category-text-poi_highlight) !important;
+            }
+            if highlightAlt {
+                color: var(--sb-category-text-poi_highlight) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-poi_highlight), 1px 1px 0 var(--sb-category-poi_highlight),1px -1px 0 var(--sb-category-poi_highlight),-1px -1px 0 var(--sb-category-poi_highlight) !important;
+                }
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-poi_highlight) !important;
             color: var(--sb-category-text-poi_highlight) !important;
+            if outlineText {
+                color: #fff !important;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            if highlightAlt {
+                color: var(--sb-category-poi_highlight) !important;
+                background-color: var(--sb-category-text-poi_highlight) !important;
+            }
         }
     }
+        
+/* INTERMISSION INTRO ANIMATION */
     option[value="intro"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-intro) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-intro), 1px 1px 0 var(--sb-category-text-intro),1px -1px 0 var(--sb-category-text-intro),-1px -1px 0 var(--sb-category-text-intro) !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-intro) !important;
-            color: var(--sb-category-text-intro) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-intro) !important;
+            }
         }
     }
+        
+/* ENDCARDS CREDITS */
     option[value="outro"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-outro) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-outro), 1px 1px 0 var(--sb-category-text-outro),1px -1px 0 var(--sb-category-text-outro),-1px -1px 0 var(--sb-category-text-outro) !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-outro) !important;
-            color: var(--sb-category-text-outro) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-outro) !important;
+            }
         }
     }
+        
+/* PREVIEW RECAP */
     option[value="preview"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-preview) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-preview), 1px 1px 0 var(--sb-category-text-preview),1px -1px 0 var(--sb-category-text-preview),-1px -1px 0 var(--sb-category-text-preview) !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-preview) !important;
-            color: var(--sb-category-text-preview) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-preview) !important;
+            }
         }
     }
+        
+/* HOOK GREETINGS */
+    option[value="hook"] {
+        if (color-style == 'color-text') {
+            color: var(--sb-category-hook) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-hook), 1px 1px 0 var(--sb-category-text-hook),1px -1px 0 var(--sb-category-text-hook),-1px -1px 0 var(--sb-category-text-hook) !important;
+            }
+        }
+        if (color-style == 'color-background') {
+            background-color: var(--sb-category-hook) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-hook) !important;
+            }
+        }
+    }
+        
+/* TANGENT JOKES */
     option[value="filler"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-filler) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-filler), 1px 1px 0 var(--sb-category-text-filler),1px -1px 0 var(--sb-category-text-filler),-1px -1px 0 var(--sb-category-text-filler) !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-filler) !important;
-            color: var(--sb-category-text-filler) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-filler) !important;
+            }
         }
     }
+        
+/* CHAPTER */
     option[value="chapter"] {
         if (color-style == 'color-text') {
             color: chapterColor !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 chapterText, 1px 1px 0 chapterText, 1px -1px 0 chapterText, -1px -1px 0 chapterText !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: chapterColor !important;
-            color: chapterText !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: chapterText !important;
+            }
         }
     }
+        
+/* MUSIC: NON-MUSIC */
     option[value="music_offtopic"] {
         if (color-style == 'color-text') {
             color: var(--sb-category-music_offtopic) !important;
+            if outlineText {
+                text-shadow: -1px 1px 0 var(--sb-category-text-music_offtopic), 1px 1px 0 var(--sb-category-text-music_offtopic),1px -1px 0 var(--sb-category-text-music_offtopic),-1px -1px 0 var(--sb-category-text-music_offtopic) !important;
+            }
         }
         if (color-style == 'color-background') {
             background-color: var(--sb-category-music_offtopic) !important;
-            color: var(--sb-category-text-music_offtopic) !important;
+            if outlineText {
+                color: #fff;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+            }
+            else {
+                color: var(--sb-category-text-music_offtopic) !important;
+            }
+        }
+    }
+    if outlineBox {
+        select[id*="sponsorTimeCategoriesSubmissionNotice"] {
+            border-color: inherit !important;
+        }
+    /* SPONSOR */
+        div[style="position: relative;"]:has(> a[href*='Sponsor']) {
+            border-color: var(--sb-category-sponsor) !important;
+        }
+    /* UNPAID SELF PROMO */
+        div[style="position: relative;"]:has(> a[href*='Unpaid']) {
+            border-color: var(--sb-category-selfpromo) !important;
+        }
+    /* EXCLUSIVE ACCESS */
+        div[style="position: relative;"]:has(> a[href*='Exclusive']) {
+            border-color: var(--sb-category-exclusive_access) !important;
+        }
+    /* INTERACTION REMINDER */
+        div[style="position: relative;"]:has(> a[href*='Interaction']) {
+            border-color: var(--sb-category-interaction) !important;
+        }
+    /* HIGHLIGHT */
+        div[style="position: relative;"]:has(> a[href*='Highlight']) {
+            border-color: var(--sb-category-poi_highlight) !important;
+            if highlightAlt {
+                border-color: var(--sb-category-text-poi_highlight) !important;
+            }
+        }
+    /* INTERMISSION INTRO ANIMATION */
+        div[style="position: relative;"]:has(> a[href*='Intermission']) {
+            border-color: var(--sb-category-intro) !important;
+        }
+    /* ENDCARDS CREDITS */
+        div[style="position: relative;"]:has(> a[href*='Endcards']) {
+            border-color: var(--sb-category-outro) !important;
+        }
+    /* PREVIEW RECAP */
+        div[style="position: relative;"]:has(> a[href*='Preview']) {
+            border-color: var(--sb-category-preview) !important;
+        }
+    /* HOOK GREETINGS */
+        div[style="position: relative;"]:has(> a[href*='Hook']) {
+            border-color: var(--sb-category-hook) !important;
+        }
+    /* TANGENTS JOKES */
+        div[style="position: relative;"]:has(> a[href*='Tangent']) {
+            border-color: var(--sb-category-filler) !important;
+        }
+    /* CHAPTER */
+        div[style="position: relative;"]:has(> a[href*='Chapter']) {
+            border-color: chapterColor !important;
+        }
+    /* MUSIC NON MUSIC */
+        div[style="position: relative;"]:has(> a[href*='Music']) {
+            border-color: var(--sb-category-music_offtopic) !important;
         }
     }
 }
