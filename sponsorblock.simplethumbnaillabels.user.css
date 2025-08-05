@@ -2,10 +2,10 @@
 @name           SponsorBlock Simple Thumbnail Label
 @description    Styles the SponsorBlock thumbnail label to match YouTube's existing badges.
 @namespace      sponsorblock-simple-thumbnail-label
-@homepageURL    https://gist.github.com/jiraph/
-@updateURL      https://gist.github.com/jiraph/e60d0a7ae7071f1f4ef060948d50a9a1/raw/sponsorblock.simplethumbnaillabels.user.css
+@homepageURL    https://github.com/jiraph/SponsorBlock-UI/
+@updateURL      https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.simplethumbnaillabels.user.css
 @author         jiraph
-@version        1.0.10
+@version        1.0.12
 @preprocessor   stylus
 @var select corner "Position" {
     'Bottom Left*'      :'bottomleft',
