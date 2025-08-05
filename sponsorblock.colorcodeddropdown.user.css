@@ -61,7 +61,7 @@
         }
     }
 
-/* ROUNDED CORNERS */
+/* NO ROUNDED CORNERS */
     if sharpCorners {
         .sponsorSkipNoticeTableContainer, .sponsorTimeEditInput, .sponsorTimeEditSelector, .sponsorTimeEditSelector > option {
             border-radius: 0px !important;
@@ -409,11 +409,11 @@
         }
         .sponsorTimeEditSelector.sponsorTimeCategories {
             if box-style == box-bar-left {
-                border-left: 6px solid !important;
+                border-left: 4px solid !important;
                 border-left-color: inherit !important;
             }
             if box-style == box-bar-right {
-                border-right: 6px solid !important;
+                border-right: 4px solid !important;
                 border-right-color: inherit !important;
             }
         }
