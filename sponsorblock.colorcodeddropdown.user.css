@@ -5,39 +5,50 @@
 @homepageURL    https://github.com/jiraph/SponsorBlock-UI
 @updateURL      https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/beta/sponsorblock.colorcodeddropdown.user.css
 @author         jiraph
-@version        1.4.0
+@version        1.4.1
 @preprocessor   stylus
-@var select     color-style     "Dropdown menu style" {
-    'Color Background*'   :'color-background',
-    'Color Text'          :'color-text',}
-@var checkbox   outlineText     "Outline text (Firefox only)" 0
-@var checkbox   textBold        "Bold text" 0
-@var checkbox   lockedBold      "Bold text when locked (VIP only)" 1
-@var color      lockedColor     "Change locked color (VIP only)" #ffc83d
-@var color      chapterColor    "Set chapter color" #e93b3b
-@var color      chapterText     "Set chapter text color" #fff
-@var checkbox   unsubmitted     "Use unsubmitted category colors" 0
-@var checkbox   highlightAlt    "Swap highlight's segment & text color" 0
-@var checkbox   flatStyle       "Flat style UI" 0
-@var checkbox   icons           "Replace cuttons with icons" 0
-@var checkbox   outlineBox      "Outline selection box with segment colour" 0
-==/UserStyle== */
 
+@var checkbox   flatStyle       "Flat style UI" 1
+@var checkbox   sharpCorners    "Remove rounded corners" 0
+@var checkbox   icons           "Replace text buttons with icons" 0
+@var select     box-style       "Color category box with current segment color" {
+    'Outline*'                  :'box-outline',
+    'Bar (L)'                   :'box-bar-left',
+    'Bar (R)'                   :'box-bar-right',
+    'Off'                       :'box-off'}
+@var select     color-style     "Color dropdown menu with segment colors" {
+    'Color Background*'         :'color-background',
+    'Color Text'                :'color-text',
+    'Off'                       :'color-off'}
+@var checkbox   textBold        "- - Bold text" 0
+@var checkbox   outlineText     "- - Outline text (Firefox only)" 0
+@var color      chapterColor    "- - Set chapter color" #e93b3b
+@var color      chapterText     "- - Set chapter text color" #fff
+@var checkbox   lockedBold      "- - Bold text when locked (VIP only)" 1
+@var color      lockedColor     "- - Change locked color (VIP only)" #ffc83d
+@var checkbox   highlightAlt    "Swap Highlight's text color" 0
+@var checkbox   unsubmitted     "Use unsubmitted category colors" 0
+==/UserStyle== */
 @-moz-document domain("youtube.com") {
-    select.sponsorTimeCategories > option {
-        if textBold {
+    
+/* BOLD TEXT */
+    if textBold {
+        select.sponsorTimeCategories option {
             font-weight: bold;
         }
     }
+    
+/* LOCKED COLOR */
     body option.sponsorBlockLockedColor {
         color: lockedColor !important;
         if lockedBold {
             font-weight: bold;
         }
     }
-    .sponsorTimeEditSelector {
-        background-color: rgba(28, 28, 28, .9) !important;
-        if unsubmitted {
+    
+/* USE UNSUBMITTED COLORS */
+    if unsubmitted {
+        .sponsorSkipNoticeParent {
             --sb-category-sponsor: var(--sb-category-preview-sponsor);
             --sb-category-selfpromo: var(--sb-category-preview-selfpromo);
             --sb-category-interaction: var(--sb-category-preview-interaction);
@@ -47,8 +58,17 @@
             --sb-category-hook: var(--sb-category-preview-hook);
             --sb-category-filler: var(--sb-category-preview-filler);
             --sb-category-music_offtopic: var(--sb-category-preview-music_offtopic);
-        }       
+        }
     }
+
+/* NO ROUNDED CORNERS */
+    if sharpCorners {
+        .sponsorSkipNoticeTableContainer, .sponsorTimeEditInput, .sponsorTimeEditSelector, .sponsorTimeEditSelector > option {
+            border-radius: 0px !important;
+        }
+    }
+
+/* FLAT UI */
     if flatStyle {
         .sponsorTimeEditInput, .sponsorTimeEditSelector {
             border: 1px solid #444 !important;
@@ -81,9 +101,8 @@
     
 /* ICONS */
     if icons {
-        
         /* LOWER ROW */
-        span.sponsorTimeEditButton {
+        .sponsorTimeMessagesRow span.sponsorTimeEditButton {
             font-size: 0px;
             display: inline-block;
             height: 18px;
@@ -91,19 +110,19 @@
             background-repeat: no-repeat;
             vertical-align: text-top;
         }
-        span[id*="DeleteButton"] {
+        .sponsorTimeMessagesRow span[id*="DeleteButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 25H25M85 25H75M25 25H30M25 25C25 25 25 74 25 80C25 86 29 90 35 90C41 90 65 90 65 90C71 90 75 86 75 80C75 54.6159 75 25 75 25M75 25H70M30 25L35 10H65L70 25M30 25H70M41 40V75M59 75V40' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        span[id*="PreviewButton"]{
+        .sponsorTimeMessagesRow span[id*="PreviewButton"]{
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 85V15L86 50L24 85Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        span[id*="InspectButton"] {
+        .sponsorTimeMessagesRow span[id*="InspectButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 18V82M85 18V82L27.8947 50L85 18Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        span[id*="PreviewEndButton"] {
+        .sponsorTimeMessagesRow span[id*="PreviewEndButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M85 18V82M15 18V82L72.1053 50L15 18Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        span[id*="EditButton"] {
+        .sponsorTimeMessagesRow span[id*="EditButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M64 21L15 70L8 92L30 85L79 36M64 21L78 7L93 22L79 36M64 21L79 36' stroke='white' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
         
@@ -123,319 +142,330 @@
             margin-left: 5px;
             padding-right: 5px;
         }
-
-        span[id*="startButton"] {
+        .sponsorTimeDisplay span[id*="startButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 29V71M56.5 29V71L24 50L56.5 29ZM89 29V71L56.4736 50L89 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        span[id*="nowButton"] {
+        .sponsorTimeDisplay span[id*="nowButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 29V71M5 71L37 50L5 29V71ZM95 71V29L63 50L95 71Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        span[id*="endButton"] {
+        .sponsorTimeDisplay span[id*="endButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M89 29V71M42.5 29V71L75 50L42.5 29ZM10 29V71L42.5264 50L10 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
     }
-    
-/* SPONSOR */
-    option[value="sponsor"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-sponsor) !important;
-            if outlineText {
-                  text-shadow: -1px 1px 0 var(--sb-category-text-sponsor), 1px 1px 0 var(--sb-category-text-sponsor),1px -1px 0 var(--sb-category-text-sponsor),-1px -1px 0 var(--sb-category-text-sponsor) !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-sponsor) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-sponsor) !important;
-            }
-        }
-    }
-    
-/* UNPAID SELF PROMOTION */
-    option[value="selfpromo"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-selfpromo) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-selfpromo), 1px 1px 0 var(--sb-category-text-selfpromo),1px -1px 0 var(--sb-category-text-selfpromo),-1px -1px 0 var(--sb-category-text-selfpromo) !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-selfpromo) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-selfpromo) !important;
-            }
-        }
-    }
-        
-/* EXCLUSIVE ACCESS */
-    option[value="exclusive_access"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-exclusive_access) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-exclusive_access), 1px 1px 0 var(--sb-category-text-exclusive_access),1px -1px 0 var(--sb-category-text-exclusive_access),-1px -1px 0 var(--sb-category-text-exclusive_access) !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-exclusive_access) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-exclusive_access) !important;
-            }
-        }
-        
-    }
-        
-/* INTERACTION REMINDER */
-    option[value="interaction"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-interaction) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-interaction), 1px 1px 0 var(--sb-category-text-interaction),1px -1px 0 var(--sb-category-text-interaction),-1px -1px 0 var(--sb-category-text-interaction) !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-interaction) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-interaction) !important;
-            }
-        }
-    }
-        
-/* HIGHLIGHT */
-    option[value="poi_highlight"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-poi_highlight) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-poi_highlight), 1px 1px 0 var(--sb-category-text-poi_highlight),1px -1px 0 var(--sb-category-text-poi_highlight),-1px -1px 0 var(--sb-category-text-poi_highlight) !important;
-            }
-            if highlightAlt {
-                color: var(--sb-category-text-poi_highlight) !important;
+
+/* DROPDOWN MENU */
+    if color-style not color-off {
+        /* SPONSOR */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="sponsor"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-sponsor) !important;
                 if outlineText {
-                    text-shadow: -1px 1px 0 var(--sb-category-poi_highlight), 1px 1px 0 var(--sb-category-poi_highlight),1px -1px 0 var(--sb-category-poi_highlight),-1px -1px 0 var(--sb-category-poi_highlight) !important;
+                      text-shadow: -1px 1px 0 var(--sb-category-text-sponsor), 1px 1px 0 var(--sb-category-text-sponsor),1px -1px 0 var(--sb-category-text-sponsor),-1px -1px 0 var(--sb-category-text-sponsor) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-sponsor) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-sponsor) !important;
                 }
             }
         }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-poi_highlight) !important;
-            color: var(--sb-category-text-poi_highlight) !important;
-            if outlineText {
-                color: #fff !important;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+        /* UNPAID SELF PROMOTION */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="selfpromo"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-selfpromo) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-selfpromo), 1px 1px 0 var(--sb-category-text-selfpromo),1px -1px 0 var(--sb-category-text-selfpromo),-1px -1px 0 var(--sb-category-text-selfpromo) !important;
+                }
             }
-            if highlightAlt {
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-selfpromo) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-selfpromo) !important;
+                }
+            }
+        }
+        /* EXCLUSIVE ACCESS */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="exclusive_access"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-exclusive_access) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-exclusive_access), 1px 1px 0 var(--sb-category-text-exclusive_access),1px -1px 0 var(--sb-category-text-exclusive_access),-1px -1px 0 var(--sb-category-text-exclusive_access) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-exclusive_access) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-exclusive_access) !important;
+                }
+            }
+
+        }
+        /* INTERACTION REMINDER */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="interaction"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-interaction) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-interaction), 1px 1px 0 var(--sb-category-text-interaction),1px -1px 0 var(--sb-category-text-interaction),-1px -1px 0 var(--sb-category-text-interaction) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-interaction) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-interaction) !important;
+                }
+            }
+        }
+        /* HIGHLIGHT */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="poi_highlight"] {
+            if (color-style == 'color-text') {
                 color: var(--sb-category-poi_highlight) !important;
-                background-color: var(--sb-category-text-poi_highlight) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-poi_highlight), 1px 1px 0 var(--sb-category-text-poi_highlight),1px -1px 0 var(--sb-category-text-poi_highlight),-1px -1px 0 var(--sb-category-text-poi_highlight) !important;
+                }
+                if highlightAlt {
+                    color: var(--sb-category-text-poi_highlight) !important;
+                    if outlineText {
+                        text-shadow: -1px 1px 0 var(--sb-category-poi_highlight), 1px 1px 0 var(--sb-category-poi_highlight),1px -1px 0 var(--sb-category-poi_highlight),-1px -1px 0 var(--sb-category-poi_highlight) !important;
+                    }
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-poi_highlight) !important;
+                color: var(--sb-category-text-poi_highlight) !important;
+                if outlineText {
+                    color: #fff !important;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                if highlightAlt {
+                    color: var(--sb-category-poi_highlight) !important;
+                    background-color: var(--sb-category-text-poi_highlight) !important;
+                }
+            }
+        }
+        /* INTERMISSION INTRO ANIMATION */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="intro"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-intro) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-intro), 1px 1px 0 var(--sb-category-text-intro),1px -1px 0 var(--sb-category-text-intro),-1px -1px 0 var(--sb-category-text-intro) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-intro) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-intro) !important;
+                }
+            }
+        }
+        /* ENDCARDS CREDITS */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="outro"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-outro) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-outro), 1px 1px 0 var(--sb-category-text-outro),1px -1px 0 var(--sb-category-text-outro),-1px -1px 0 var(--sb-category-text-outro) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-outro) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-outro) !important;
+                }
+            }
+        }
+        /* PREVIEW RECAP */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="preview"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-preview) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-preview), 1px 1px 0 var(--sb-category-text-preview),1px -1px 0 var(--sb-category-text-preview),-1px -1px 0 var(--sb-category-text-preview) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-preview) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-preview) !important;
+                }
+            }
+        }
+        /* HOOK GREETINGS */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="hook"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-hook) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-hook), 1px 1px 0 var(--sb-category-text-hook),1px -1px 0 var(--sb-category-text-hook),-1px -1px 0 var(--sb-category-text-hook) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-hook) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-hook) !important;
+                }
+            }
+        }
+        /* TANGENT JOKES */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="filler"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-filler) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-filler), 1px 1px 0 var(--sb-category-text-filler),1px -1px 0 var(--sb-category-text-filler),-1px -1px 0 var(--sb-category-text-filler) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-filler) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-filler) !important;
+                }
+            }
+        }
+        /* CHAPTER */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="chapter"] {
+            if (color-style == 'color-text') {
+                color: chapterColor !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 chapterText, 1px 1px 0 chapterText, 1px -1px 0 chapterText, -1px -1px 0 chapterText !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: chapterColor !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: chapterText !important;
+                }
+            }
+        }
+        /* MUSIC: NON-MUSIC */
+        .sponsorTimeEditSelector.sponsorTimeCategories option[value="music_offtopic"] {
+            if (color-style == 'color-text') {
+                color: var(--sb-category-music_offtopic) !important;
+                if outlineText {
+                    text-shadow: -1px 1px 0 var(--sb-category-text-music_offtopic), 1px 1px 0 var(--sb-category-text-music_offtopic),1px -1px 0 var(--sb-category-text-music_offtopic),-1px -1px 0 var(--sb-category-text-music_offtopic) !important;
+                }
+            }
+            if (color-style == 'color-background') {
+                background-color: var(--sb-category-music_offtopic) !important;
+                if outlineText {
+                    color: #fff;
+                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+                }
+                else {
+                    color: var(--sb-category-text-music_offtopic) !important;
+                }
             }
         }
     }
-        
-/* INTERMISSION INTRO ANIMATION */
-    option[value="intro"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-intro) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-intro), 1px 1px 0 var(--sb-category-text-intro),1px -1px 0 var(--sb-category-text-intro),-1px -1px 0 var(--sb-category-text-intro) !important;
+
+/* CATEGORY BOX */
+    if box-style not box-off {
+        .sponsorTimeEditSelector.sponsorTimeCategories {
+            if box-style == box-outline {
+                border-color: inherit !important;
+            }
+            if box-style == box-bar-left {
+                border-left-color: inherit !important;
+            }
+            if box-style == box-bar-right {
+                border-right-color: inherit !important;
             }
         }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-intro) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
+        .sponsorTimeEditSelector.sponsorTimeCategories {
+            if box-style == box-bar-left {
+                border-left: 4px solid !important;
+                border-left-color: inherit !important;
             }
-            else {
-                color: var(--sb-category-text-intro) !important;
-            }
-        }
-    }
-        
-/* ENDCARDS CREDITS */
-    option[value="outro"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-outro) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-outro), 1px 1px 0 var(--sb-category-text-outro),1px -1px 0 var(--sb-category-text-outro),-1px -1px 0 var(--sb-category-text-outro) !important;
+            if box-style == box-bar-right {
+                border-right: 4px solid !important;
+                border-right-color: inherit !important;
             }
         }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-outro) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-outro) !important;
-            }
-        }
-    }
-        
-/* PREVIEW RECAP */
-    option[value="preview"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-preview) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-preview), 1px 1px 0 var(--sb-category-text-preview),1px -1px 0 var(--sb-category-text-preview),-1px -1px 0 var(--sb-category-text-preview) !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-preview) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-preview) !important;
-            }
-        }
-    }
-        
-/* HOOK GREETINGS */
-    option[value="hook"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-hook) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-hook), 1px 1px 0 var(--sb-category-text-hook),1px -1px 0 var(--sb-category-text-hook),-1px -1px 0 var(--sb-category-text-hook) !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-hook) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-hook) !important;
-            }
-        }
-    }
-        
-/* TANGENT JOKES */
-    option[value="filler"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-filler) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-filler), 1px 1px 0 var(--sb-category-text-filler),1px -1px 0 var(--sb-category-text-filler),-1px -1px 0 var(--sb-category-text-filler) !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-filler) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-filler) !important;
-            }
-        }
-    }
-        
-/* CHAPTER */
-    option[value="chapter"] {
-        if (color-style == 'color-text') {
-            color: chapterColor !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 chapterText, 1px 1px 0 chapterText, 1px -1px 0 chapterText, -1px -1px 0 chapterText !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: chapterColor !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: chapterText !important;
-            }
-        }
-    }
-        
-/* MUSIC: NON-MUSIC */
-    option[value="music_offtopic"] {
-        if (color-style == 'color-text') {
-            color: var(--sb-category-music_offtopic) !important;
-            if outlineText {
-                text-shadow: -1px 1px 0 var(--sb-category-text-music_offtopic), 1px 1px 0 var(--sb-category-text-music_offtopic),1px -1px 0 var(--sb-category-text-music_offtopic),-1px -1px 0 var(--sb-category-text-music_offtopic) !important;
-            }
-        }
-        if (color-style == 'color-background') {
-            background-color: var(--sb-category-music_offtopic) !important;
-            if outlineText {
-                color: #fff;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000 !important;
-            }
-            else {
-                color: var(--sb-category-text-music_offtopic) !important;
-            }
-        }
-    }
-    if outlineBox {
-        select[id*="sponsorTimeCategoriesSubmissionNotice"] {
-            border-color: inherit !important;
-        }
-    /* SPONSOR */
-        div[style="position: relative;"]:has(> a[href*='Sponsor']) {
+        /* SPONSOR */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Sponsor']) {
             border-color: var(--sb-category-sponsor) !important;
         }
-    /* UNPAID SELF PROMO */
-        div[style="position: relative;"]:has(> a[href*='Unpaid']) {
+        /* UNPAID SELF PROMO */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Unpaid']) {
             border-color: var(--sb-category-selfpromo) !important;
         }
-    /* EXCLUSIVE ACCESS */
-        div[style="position: relative;"]:has(> a[href*='Exclusive']) {
+        /* EXCLUSIVE ACCESS */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Exclusive']) {
             border-color: var(--sb-category-exclusive_access) !important;
         }
-    /* INTERACTION REMINDER */
-        div[style="position: relative;"]:has(> a[href*='Interaction']) {
+        /* INTERACTION REMINDER */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Interaction']) {
             border-color: var(--sb-category-interaction) !important;
         }
-    /* HIGHLIGHT */
-        div[style="position: relative;"]:has(> a[href*='Highlight']) {
+        /* HIGHLIGHT */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Highlight']) {
             border-color: var(--sb-category-poi_highlight) !important;
             if highlightAlt {
                 border-color: var(--sb-category-text-poi_highlight) !important;
             }
         }
-    /* INTERMISSION INTRO ANIMATION */
-        div[style="position: relative;"]:has(> a[href*='Intermission']) {
+        /* INTERMISSION INTRO ANIMATION */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Intermission']) {
             border-color: var(--sb-category-intro) !important;
         }
-    /* ENDCARDS CREDITS */
-        div[style="position: relative;"]:has(> a[href*='Endcards']) {
+        /* ENDCARDS CREDITS */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Endcards']) {
             border-color: var(--sb-category-outro) !important;
         }
-    /* PREVIEW RECAP */
-        div[style="position: relative;"]:has(> a[href*='Preview']) {
+        /* PREVIEW RECAP */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Preview']) {
             border-color: var(--sb-category-preview) !important;
         }
-    /* HOOK GREETINGS */
-        div[style="position: relative;"]:has(> a[href*='Hook']) {
+        /* HOOK GREETINGS */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Hook']) {
             border-color: var(--sb-category-hook) !important;
         }
-    /* TANGENTS JOKES */
-        div[style="position: relative;"]:has(> a[href*='Tangent']) {
+        /* TANGENTS JOKES */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Tangent']) {
             border-color: var(--sb-category-filler) !important;
         }
-    /* CHAPTER */
-        div[style="position: relative;"]:has(> a[href*='Chapter']) {
+        /* CHAPTER */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Chapter']) {
             border-color: chapterColor !important;
         }
-    /* MUSIC NON MUSIC */
-        div[style="position: relative;"]:has(> a[href*='Music']) {
+        /* MUSIC NON MUSIC */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Music']) {
             border-color: var(--sb-category-music_offtopic) !important;
         }
     }
