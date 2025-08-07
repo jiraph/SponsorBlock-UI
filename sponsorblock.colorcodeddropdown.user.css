@@ -5,12 +5,13 @@
 @homepageURL    https://github.com/jiraph/SponsorBlock-UI
 @updateURL      https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/beta/sponsorblock.colorcodeddropdown.user.css
 @author         jiraph
-@version        1.4.1
+@version        1.4.2
 @preprocessor   stylus
 
 @var checkbox   flatStyle       "Flat style UI" 1
 @var checkbox   sharpCorners    "Remove rounded corners" 0
 @var checkbox   icons           "Replace text buttons with icons" 0
+@var checkbox   wideChapter     "Full width chapter input box" 0
 @var select     box-style       "Color category box with current segment color" {
     'Outline*'                  :'box-outline',
     'Bar (L)'                   :'box-bar-left',
@@ -67,6 +68,25 @@
             border-radius: 0px !important;
         }
     }
+    
+/* FULL WIDTH CHAPTER INPUT BOX */
+    .sponsorTimeEditInput.sponsorChapterNameInput {
+        if flatStyle || icons {
+            margin: 0px -5px 5px -5px;
+        }
+        if flatStyle {
+            width: 212px !important;
+        }
+        if wideChapter {
+            if not flatStyle {
+                width: 340px !important;
+                margin-right: 5px;
+            }
+            if flatStyle {
+                width: 98% !important;
+            }
+        }
+    }
 
 /* FLAT UI */
     if flatStyle {
@@ -79,9 +99,8 @@
             margin-right: 3px;
             background-color: #1b1b1b !important;
         }
-        .sponsorTimeEditInput.sponsorChapterNameInput {
-            width: 90% !important;
-            margin-bottom: 5px;
+        .sponsorTimeEditSelector.sponsorTimeCategories {
+            max-width: 220px;
         }
         .sponsorNowButton {
             margin: 2px;
@@ -113,7 +132,7 @@
         .sponsorTimeMessagesRow span[id*="DeleteButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 25H25M85 25H75M25 25H30M25 25C25 25 25 74 25 80C25 86 29 90 35 90C41 90 65 90 65 90C71 90 75 86 75 80C75 54.6159 75 25 75 25M75 25H70M30 25L35 10H65L70 25M30 25H70M41 40V75M59 75V40' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        .sponsorTimeMessagesRow span[id*="PreviewButton"]{
+        .sponsorTimeMessagesRow span[id*="PreviewButton"], .sponsorTimeMessagesRow:has(a[href*='Highlight']).sponsorTimeMessagesRow span[id*="InspectButton"]{
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 85V15L86 50L24 85Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
         .sponsorTimeMessagesRow span[id*="InspectButton"] {
@@ -124,6 +143,9 @@
         }
         .sponsorTimeMessagesRow span[id*="EditButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M64 21L15 70L8 92L30 85L79 36M64 21L78 7L93 22L79 36M64 21L79 36' stroke='white' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        .sponsorTimeMessagesRow:has(span[id*="nowButton"]) span[id*="EditButton"] {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M41.2368 13V31.5H69.4737V13M30 87V52H70V87M13 13V87H87V24.6842L75.3158 13H13Z' stroke='white' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
         
         /* UPPER ROW */
@@ -143,13 +165,13 @@
             padding-right: 5px;
         }
         .sponsorTimeDisplay span[id*="startButton"] {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 29V71M56.5 29V71L24 50L56.5 29ZM89 29V71L56.4736 50L89 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 29V71M55 29V71L23 50L55 29ZM90 29V71L58 50L90 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
         .sponsorTimeDisplay span[id*="nowButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 29V71M5 71L37 50L5 29V71ZM95 71V29L63 50L95 71Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
         .sponsorTimeDisplay span[id*="endButton"] {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M89 29V71M42.5 29V71L75 50L42.5 29ZM10 29V71L42.5264 50L10 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M90 29V71M45 29V71L77 50L45 29ZM10 29V71L42 50L10 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
     }
 
@@ -416,6 +438,10 @@
                 border-right: 4px solid !important;
                 border-right-color: inherit !important;
             }
+        }
+        /* CHOOSE CATEGORY */
+        .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Segment_Categories']) {
+            border-color: #444 !important;
         }
         /* SPONSOR */
         .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Sponsor']) {
