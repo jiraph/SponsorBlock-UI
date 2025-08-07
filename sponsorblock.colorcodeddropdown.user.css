@@ -11,7 +11,7 @@
 @var checkbox   flatStyle       "Flat style UI" 1
 @var checkbox   sharpCorners    "Remove rounded corners" 0
 @var checkbox   icons           "Replace text buttons with icons" 0
-@var checkbox   wideChapter       "Full width chapter input box" 0
+@var checkbox   wideChapter     "Full width chapter input box" 0
 @var select     box-style       "Color category box with current segment color" {
     'Outline*'                  :'box-outline',
     'Bar (L)'                   :'box-bar-left',
