@@ -27,13 +27,18 @@ Includes a settings menu if installed with Stylus:
 
 <summary>Changelog</summary>
 
+### 1.4.3 ###
+<sup> (2025-08-08) </sup>
+- Fixes and improvements:
+  - Fix save icon showing on all segments instead of just the one being edited
+
 ### 1.4.2 ###
 <sup> (2025-08-06) </sup>
 - New features:
-  - Full width chapter input box
+  - Full width chapter input box option
   - Dynamically selected Edit/Save icon
 - Fixes and improvements: 
-  - Highlight inspect button now uses Preview icon
+  - Highlight inspect button now uses preview icon
   - Edited 'Set start' and 'Set end' icons
   - Segment box border colour for 'Select a category' is no longer pure white
 
