@@ -5,7 +5,7 @@
 @homepageURL    https://github.com/jiraph/SponsorBlock-UI
 @updateURL      https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/beta/sponsorblock.colorcodeddropdown.user.css
 @author         jiraph
-@version        1.4.2
+@version        1.4.3
 @preprocessor   stylus
 
 @var checkbox   flatStyle       "Flat style UI" 1
@@ -144,7 +144,7 @@
         .sponsorTimeMessagesRow span[id*="EditButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M64 21L15 70L8 92L30 85L79 36M64 21L78 7L93 22L79 36M64 21L79 36' stroke='white' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        .sponsorTimeMessagesRow:has(span[id*="nowButton"]) span[id*="EditButton"] {
+        div[id*="sponsorTimeEditContainerSubmissionNotice"]:has(span[id*="nowButton"]) span[id*="EditButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M41.2368 13V31.5H69.4737V13M30 87V52H70V87M13 13V87H87V24.6842L75.3158 13H13Z' stroke='white' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
         
