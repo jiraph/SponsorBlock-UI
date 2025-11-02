@@ -27,6 +27,11 @@ Includes a settings menu if installed with Stylus:
 
 <summary>Changelog</summary>
 
+### 1.5.1 ###
+<sup> (2025-11-02) </sup>
+- Fixes and improvements:
+  - Added stop segment icon
+
 ### 1.5.0 ###
 <sup> (2025-11-01) </sup>
 - New features:
