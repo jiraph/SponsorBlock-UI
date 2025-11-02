@@ -5,7 +5,7 @@
 @homepageURL    https://github.com/jiraph/SponsorBlock-UI
 @updateURL      https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.css
 @author         jiraph
-@version        1.5.0
+@version        1.5.1
 @preprocessor   stylus
 
 @var checkbox   flatStyle       "Flat style UI" 1
@@ -195,8 +195,12 @@
     
     /* DELHI-UI PLAYER BUTTONS */
     if delhiUI {
-        #startSegmentImage {
+        #startSegmentImage[src="moz-extension://c6137369-ea7d-45c8-9ad0-3f3576848100/icons/PlayerStartIconSponsorBlocker.svg"], #startSegmentImage[src="chrome-extension://mnjggcdmjocbbbhaepdhchncahnbgone/icons/PlayerStartIconSponsorBlocker.svg"] {
             content: url("data:image/svg+xml,%3Csvg viewBox='0 0 565 565' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M286.124 48.6567C360.376 49.2346 433.375 68.0019 498.722 103.341C504.223 106.322 508.803 110.754 511.964 116.157C515.126 121.563 516.745 127.733 516.645 133.993V134.041C514.446 290.011 433.808 432.041 300.785 514.165C295.075 517.599 288.808 519.363 282.607 519.359H282.57C276.366 519.363 270.101 517.6 264.423 514.182C131.383 432.051 50.7393 290.016 48.5311 134.011V133.994L48.5301 133.976C48.4357 127.892 50.0448 121.715 53.2704 116.056C56.4301 110.697 60.9914 106.299 66.4637 103.336L66.4627 103.335C132.681 67.5263 207.244 48.9401 282.631 48.6567H286.124Z' stroke='%23F1F1F1' stroke-width='50.7'/%3E%3Cpath d='M225.517 157.081L400.732 258.242L225.517 359.405V157.081Z' fill='%23F1F1F1'/%3E%3C/svg%3E%0A");
+            max-height: 26px;
+        }
+        #startSegmentImage[src="moz-extension://c6137369-ea7d-45c8-9ad0-3f3576848100/icons/PlayerStopIconSponsorBlocker.svg"], #startSegmentImage[src="chrome-extension://mnjggcdmjocbbbhaepdhchncahnbgone/icons/PlayerStopIconSponsorBlocker.svg"] {
+            content: url("data:image/svg+xml,%3Csvg viewBox='0 0 565 565' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M286.947 48.6567C361.199 49.2346 434.199 68.0019 499.545 103.341C505.047 106.322 509.627 110.754 512.787 116.157C515.95 121.563 517.569 127.733 517.469 133.993V134.041C515.269 290.011 434.631 432.041 301.608 514.165C295.899 517.599 289.632 519.363 283.431 519.359H283.394C277.19 519.363 270.924 517.6 265.246 514.182C132.206 432.051 51.5627 290.016 49.3545 134.011V133.994L49.3535 133.976C49.2591 127.892 50.8682 121.715 54.0938 116.056C57.2535 110.697 61.8148 106.299 67.2871 103.336L67.2861 103.335C133.505 67.5263 208.067 48.9401 283.454 48.6567H286.947Z' stroke='%23F1F1F1' stroke-width='50.7'/%3E%3Crect x='203' y='175' width='160' height='160' fill='%23F1F1F1'/%3E%3C/svg%3E%0A");
             max-height: 26px;
         }
         #cancelSegmentImage {
