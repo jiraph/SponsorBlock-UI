@@ -1,16 +1,17 @@
 /* ==UserStyle==
 @name           Better Menu for SponsorBlock
-@description    Styles the dropdown list in the submission menu with each categories respective color.
+@description    Revamps the SponsorBlock submission menu with extra features.
 @namespace      sponsorblock-color-coded-dropdown
 @homepageURL    https://github.com/jiraph/SponsorBlock-UI
-@updateURL      https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/beta/sponsorblock.colorcodeddropdown.user.css
+@updateURL      https://github.com/jiraph/SponsorBlock-UI/raw/refs/heads/main/sponsorblock.colorcodeddropdown.user.css
 @author         jiraph
-@version        1.4.3
+@version        1.5.0
 @preprocessor   stylus
 
 @var checkbox   flatStyle       "Flat style UI" 1
 @var checkbox   sharpCorners    "Remove rounded corners" 0
-@var checkbox   icons           "Replace text buttons with icons" 0
+@var checkbox   delhiUI         "Match player buttons with new Youtube UI" 1
+@var checkbox   icons           "Replace editor text buttons with icons" 0
 @var checkbox   wideChapter     "Full width chapter input box" 0
 @var select     box-style       "Color category box with current segment color" {
     'Outline*'                  :'box-outline',
@@ -72,7 +73,7 @@
 /* FULL WIDTH CHAPTER INPUT BOX */
     .sponsorTimeEditInput.sponsorChapterNameInput {
         if flatStyle || icons {
-            margin: 0px -5px 5px -5px;
+            margin: 0px -5px 0px -5px;
         }
         if flatStyle {
             width: 212px !important;
@@ -116,6 +117,20 @@
             padding-top: 10px !important;
             margin-top: 0px !important;
         }
+        .sponsorTimeActionTypes {
+            margin-top: 1px !important;
+            margin-bottom: 0px !important;
+        }
+        .hideSegmentSubmitButton {
+            margin-top: 2px !important;
+        }
+        .sponsorTimeDisplay {
+            if not icons {
+                margin-left: -8px;
+                margin-right: -2px;
+            }
+            min-height: 22px !important;
+        }
     }
     
 /* ICONS */
@@ -129,10 +144,13 @@
             background-repeat: no-repeat;
             vertical-align: text-top;
         }
+        .sponsorTimeEditButton {
+            margin-top: 7px;
+        }
         .sponsorTimeMessagesRow span[id*="DeleteButton"] {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 25H25M85 25H75M25 25H30M25 25C25 25 25 74 25 80C25 86 29 90 35 90C41 90 65 90 65 90C71 90 75 86 75 80C75 54.6159 75 25 75 25M75 25H70M30 25L35 10H65L70 25M30 25H70M41 40V75M59 75V40' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
-        .sponsorTimeMessagesRow span[id*="PreviewButton"], .sponsorTimeMessagesRow:has(a[href*='Highlight']).sponsorTimeMessagesRow span[id*="InspectButton"]{
+        .sponsorTimeMessagesRow span[id*="PreviewButton"], div[id*="sponsorTimeEditContainerSubmissionNotice"]:has(a[href*='Highlight']) span[id*="InspectButton"]{
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 85V15L86 50L24 85Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
         .sponsorTimeMessagesRow span[id*="InspectButton"] {
@@ -174,6 +192,34 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M90 29V71M45 29V71L77 50L45 29ZM10 29V71L42 50L10 29Z' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
     }
+    
+    /* DELHI-UI PLAYER BUTTONS */
+    if delhiUI {
+        #startSegmentImage {
+            content: url("data:image/svg+xml,%3Csvg viewBox='0 0 565 565' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M286.124 48.6567C360.376 49.2346 433.375 68.0019 498.722 103.341C504.223 106.322 508.803 110.754 511.964 116.157C515.126 121.563 516.745 127.733 516.645 133.993V134.041C514.446 290.011 433.808 432.041 300.785 514.165C295.075 517.599 288.808 519.363 282.607 519.359H282.57C276.366 519.363 270.101 517.6 264.423 514.182C131.383 432.051 50.7393 290.016 48.5311 134.011V133.994L48.5301 133.976C48.4357 127.892 50.0448 121.715 53.2704 116.056C56.4301 110.697 60.9914 106.299 66.4637 103.336L66.4627 103.335C132.681 67.5263 207.244 48.9401 282.631 48.6567H286.124Z' stroke='%23F1F1F1' stroke-width='50.7'/%3E%3Cpath d='M225.517 157.081L400.732 258.242L225.517 359.405V157.081Z' fill='%23F1F1F1'/%3E%3C/svg%3E%0A");
+            max-height: 26px;
+        }
+        #cancelSegmentImage {
+            content: url("data:image/svg+xml,%3Csvg viewBox='0 0 565 565' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M286.947 48.6567C361.199 49.2346 434.199 68.0019 499.545 103.341C505.047 106.322 509.627 110.754 512.787 116.157C515.95 121.563 517.569 127.733 517.469 133.993V134.041C515.269 290.011 434.631 432.041 301.608 514.165C295.899 517.599 289.632 519.363 283.431 519.359H283.394C277.19 519.363 270.924 517.6 265.246 514.182C132.206 432.051 51.5627 290.016 49.3545 134.011V133.994L49.3535 133.976C49.2591 127.892 50.8682 121.715 54.0938 116.056C57.2535 110.697 61.8148 106.299 67.2871 103.336L67.2861 103.335C133.505 67.5263 208.067 48.9401 283.454 48.6567H286.947Z' stroke='%23F1F1F1' stroke-width='50.7'/%3E%3Cpath d='M283.45 254.45L352.754 323.754M283.45 254.45L214.146 323.754M283.45 254.45L352.754 185.146M283.45 254.45L214.276 185.276' stroke='%23F1F1F1' stroke-width='48' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+            max-height: 26px;
+            }
+        #deleteImage {
+            content: url("data:image/svg+xml,%3Csvg viewBox='0 0 565 565' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M286.947 48.6567C361.199 49.2346 434.199 68.0019 499.545 103.341C505.047 106.322 509.627 110.754 512.787 116.157C515.95 121.563 517.569 127.733 517.469 133.993V134.041C515.269 290.011 434.631 432.041 301.608 514.165C295.899 517.599 289.632 519.363 283.431 519.359H283.394C277.19 519.363 270.924 517.6 265.246 514.182C132.206 432.051 51.5627 290.016 49.3545 134.011V133.994L49.3535 133.976C49.2591 127.892 50.8682 121.715 54.0938 116.056C57.2535 110.697 61.8148 106.299 67.2871 103.336L67.2861 103.335C133.505 67.5263 208.067 48.9401 283.454 48.6567H286.947Z' stroke='%23F1F1F1' stroke-width='50.7'/%3E%3Cpath d='M183 202.436H217.865M217.865 202.436H230.892M217.865 202.436C217.865 202.436 217.865 330.261 217.865 345.913C217.865 361.565 228.286 372 243.919 372C250.874 372 267.115 372 283 372M383 202.436H348.135M348.135 202.436C348.135 202.436 348.135 279.695 348.135 345.913C348.135 361.565 337.714 372 322.081 372C322.081 372 302.817 372 283 372M348.135 202.436H335.108M230.892 202.436L243.919 144H322.081L335.108 202.436M230.892 202.436H283M335.108 202.436H283M283 202.436V372' stroke='%23F1F1F1' stroke-width='40' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            max-height: 26px;
+        }
+        #submitImage {
+            content: url("data:image/svg+xml,%3Csvg viewBox='0 0 565 565' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M286.947 48.6567C361.199 49.2346 434.199 68.0019 499.545 103.341C505.047 106.322 509.627 110.754 512.787 116.157C515.95 121.563 517.569 127.733 517.469 133.993V134.041C515.269 290.011 434.631 432.041 301.608 514.165C295.899 517.599 289.632 519.363 283.431 519.359H283.394C277.19 519.363 270.924 517.6 265.246 514.182C132.206 432.051 51.5627 290.016 49.3545 134.011V133.994L49.3535 133.976C49.2591 127.892 50.8682 121.715 54.0938 116.056C57.2535 110.697 61.8148 106.299 67.2871 103.336L67.2861 103.335C133.505 67.5263 208.067 48.9401 283.454 48.6567H286.947Z' stroke='%23F1F1F1' stroke-width='50.7'/%3E%3Cpath d='M283.211 170.712L368.409 255.91M283.211 170.712L283.296 345.88M283.211 170.712L198.013 255.91' stroke='%23F1F1F1' stroke-width='48' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+            max-height: 26px;
+        }
+        #infoImage {
+            content: url("data:image/svg+xml,%3Csvg viewBox='0 0 565 565' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M286.947 48.6567C361.199 49.2346 434.199 68.0019 499.545 103.341C505.047 106.322 509.627 110.754 512.787 116.157C515.95 121.563 517.569 127.733 517.469 133.993V134.041C515.269 290.011 434.631 432.041 301.608 514.165C295.899 517.599 289.632 519.363 283.431 519.359H283.394C277.19 519.363 270.924 517.6 265.246 514.182C132.206 432.051 51.5627 290.016 49.3545 134.011V133.994L49.3535 133.976C49.2591 127.892 50.8682 121.715 54.0938 116.056C57.2535 110.697 61.8148 106.299 67.2871 103.336L67.2861 103.335C133.505 67.5263 208.067 48.9401 283.454 48.6567H286.947Z' stroke='%23F1F1F1' stroke-width='50.7'/%3E%3Cpath d='M282.5 136.906C274.695 136.906 267.211 140.007 261.692 145.525C256.173 151.044 253.073 158.529 253.073 166.333C253.073 174.138 256.173 181.623 261.692 187.141C267.211 192.66 274.695 195.76 282.5 195.76C290.305 195.76 297.789 192.66 303.308 187.141C308.827 181.623 311.927 174.138 311.927 166.333C311.927 158.529 308.827 151.044 303.308 145.525C297.789 140.007 290.305 136.906 282.5 136.906ZM306.042 331.125V213.417H247.188C240.944 213.417 234.956 215.897 230.541 220.312C226.126 224.727 223.646 230.715 223.646 236.958C223.646 243.202 226.126 249.19 230.541 253.605C234.956 258.02 240.944 260.5 247.188 260.5H258.958V331.125H235.417C229.173 331.125 223.185 333.605 218.77 338.02C214.355 342.435 211.875 348.423 211.875 354.667C211.875 360.91 214.355 366.898 218.77 371.313C223.185 375.728 229.173 378.208 235.417 378.208H329.583C335.827 378.208 341.815 375.728 346.23 371.313C350.645 366.898 353.125 360.91 353.125 354.667C353.125 348.423 350.645 342.435 346.23 338.02C341.815 333.605 335.827 331.125 329.583 331.125H306.042Z' fill='%23F1F1F1'/%3E%3C/svg%3E%0A");
+            max-height: 26px;
+    }
+        #sbSkipIconControlBarImage {
+            content: url("data:image/svg+xml,%3Csvg viewBox='0 0 565 565' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M286.947 48.6567C361.199 49.2346 434.199 68.0019 499.545 103.341C505.047 106.322 509.627 110.754 512.787 116.157C515.95 121.563 517.569 127.733 517.469 133.993V134.041C515.269 290.011 434.631 432.041 301.608 514.165C295.899 517.599 289.632 519.363 283.431 519.359H283.394C277.19 519.363 270.924 517.6 265.246 514.182C132.206 432.051 51.5627 290.016 49.3545 134.011V133.994L49.3535 133.976C49.2591 127.892 50.8682 121.715 54.0938 116.056C57.2535 110.697 61.8148 106.299 67.2871 103.336L67.2861 103.335C133.505 67.5263 208.067 48.9401 283.454 48.6567H286.947Z' stroke='%23F1F1F1' stroke-width='50.7'/%3E%3Cpath d='M188 179L262.165 253.165L188.287 327.044' stroke='%23F1F1F1' stroke-width='48' stroke-linecap='round'/%3E%3Cpath d='M312.515 178.38L386.68 252.545L312.802 326.423' stroke='%23F1F1F1' stroke-width='48' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+            max-height: 26px;
+            }
+        }
 
 /* DROPDOWN MENU */
     if color-style not color-off {
@@ -439,9 +485,30 @@
                 border-right-color: inherit !important;
             }
         }
+        if not flatStyle {
+            .sponsorTimeEditInput, .sponsorTimeActionTypes {
+                border-color: var(--sb-dark-red-outline) !important;
+            }
+            if box-style == box-bar-left {
+                .sponsorTimeEditSelector.sponsorTimeCategories {
+                    border-color: var(--sb-dark-red-outline) !important;
+                    border-left-color: inherit !important;
+                }
+            }
+            if box-style == box-bar-right {
+                .sponsorTimeEditSelector.sponsorTimeCategories {
+                    border-color: var(--sb-dark-red-outline) !important;
+                    border-right-color: inherit !important;
+                }
+            }
+        }
         /* CHOOSE CATEGORY */
         .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Segment_Categories']) {
-            border-color: #444 !important;
+            if flatStyle {
+                border-color: #444 !important;
+            } else {
+                border-color: var(--sb-dark-red-outline) !important;
+            }
         }
         /* SPONSOR */
         .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Sponsor']) {
@@ -493,6 +560,13 @@
         /* MUSIC NON MUSIC */
         .sponsorTimeMessagesRow div[style="position: relative;"]:has(> a[href*='Music']) {
             border-color: var(--sb-category-music_offtopic) !important;
+        }
+    }
+    if box-style == box-off {
+        if not flatStyle {
+            .sponsorTimeEditSelector, .sponsorTimeEditInput {
+                border-color: var(--sb-dark-red-outline) !important;
+            }
         }
     }
 }
