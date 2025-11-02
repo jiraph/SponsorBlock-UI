@@ -27,6 +27,17 @@ Includes a settings menu if installed with Stylus:
 
 <summary>Changelog</summary>
 
+### 1.5.0 ###
+<sup> (2025-11-01) </sup>
+- New features:
+  - New player icons to match the new YouTube UI refresh
+- Fixes and improvements:
+  - Margins and width fixes for better look and to stop elements changing size when editing (mostly)
+  - Highlight now uses the preview icon for inspect, since it is more in line with it's function
+  - Changes to category box outline since this is now a native function:
+  - Setting to "off" now disables native colouring
+  - Disabled native segment time box and segment type box colouring
+
 ### 1.4.3 ###
 <sup> (2025-08-08) </sup>
 - Fixes and improvements:
