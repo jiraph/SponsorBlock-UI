@@ -22,6 +22,7 @@ Includes a settings menu if installed with Stylus:
     - More readable bold text, or extra-readable white text with black outline (outline does not work on Chrome).
     - Edit chapter colour, since it does not have a colour in the SponsorBlock settings.
     - Option to use unsubmitted category colours.
+  - New icons for the player buttons to match YouTube's latest UI.
 
 <details>
 
